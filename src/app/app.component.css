@@ -1,0 +1,29 @@
+h1{
+    font-family: 'MyFrida';
+    color: blueviolet;
+}
+
+body{
+    background-color: rgb(217, 191, 232);
+
+}
+#columna {
+    float: right;
+    width: 150px;
+    margin: 20px 0px;
+    padding: 20px;
+    background-color: pink;
+    color:rgb(0, 0, 94);
+    border-width: 10px;
+    position: relative;
+    animation: mymove 2s infinite;
+    animation-direction:inherit;
+    }
+
+    @keyframes mymove {
+        0%   {left: 20px; top: 100px;}
+        25%  {left: 20px; top: 50px;}
+        50%  { left: 20px; top: 100px;}
+        75%  {  left: 20px; top: 0px;}
+        100% { left: 20px; top: 100px;}
+      }

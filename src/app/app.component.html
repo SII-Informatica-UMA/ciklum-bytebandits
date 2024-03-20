@@ -1,0 +1,40 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>DIETAS</h1>
+      <div class="list-group">
+        <button *ngFor="let contacto of contactos"
+          class="list-group-item list-group-item-action"
+          (click)="elegirContacto(contacto)"
+          [class.active]="contacto === contactoElegido">{{contacto.nombre}}</button>
+      </div>
+      <br>
+      <button type="button" class="btn btn-outline-primary bi bi-plus-lg" (click)="aniadirContacto()"></button>
+    </div>
+    <div class="col-md-6" *ngIf="contactoElegido">
+      <app-detalle-contacto [contacto]="contactoElegido"
+        (contactoEditado)="contactoEditado($event)"
+        (contactoEliminado)="eliminarContacto($event)"
+        ></app-detalle-contacto>
+
+        <aside id="columna">
+    Dietas saludables
+    <iframe width="160" height="85" 
+    src="https://www.youtube.com/embed/kAaJpo2VZec?autohide=2"  
+    allowfullscreen></iframe>
+    <br>
+<br>
+<br>
+<br>
+<br>
+Mejores alimentos para bajar de peso
+    <iframe width="160" height="85" 
+    src="https://www.youtube.com/embed/vDZ18bAtZIk?autohide=2"  
+    allowfullscreen></iframe>
+</aside>
+    </div>
+  </div>
+</div>
+
+</body>
