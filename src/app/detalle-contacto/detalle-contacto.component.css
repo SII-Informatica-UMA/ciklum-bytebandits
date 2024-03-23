@@ -18,7 +18,17 @@ body {
     background-color: #f1cdf1;
 }
 
+.cardDieta{
 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 680px;
+    height: 300px;
+    background-color: #f1cdf1;
+
+}
 
 .seccion{
 
@@ -57,4 +67,72 @@ body {
 
 .btn-margin{
     margin-right: 10px;
+}
+
+
+
+
+
+table{
+
+    border-style:solid ;
+    border-collapse: collapse;
+    border-color: blueviolet; 
+    margin: auto;
+
+}
+
+.moradoOscuro{
+    background-color: blueviolet; 
+    color: #f1cdf1;
+    border:solid;
+    border-collapse: collapse;
+    border-color: #f1cdf1;
+    border-left-color: blueviolet;
+
+  
+
+}
+
+.primeraFila{
+    background-color: blueviolet; 
+    color: #f1cdf1;
+}
+
+
+
+
+
+td{
+    border:solid;
+    border-collapse: collapse;
+    border-color: blueviolet;
+
+
+}
+
+th{
+    border:solid;
+    border-collapse: collapse;
+    border-bottom-color: blueviolet;
+    border-top-color: blueviolet;
+    
+}
+
+.ultimaCeldaTabla{
+    border:solid;
+    border-collapse: collapse;
+    border-bottom-color: blueviolet;
+    border-right-color: blueviolet;
+    border-top-color: blueviolet;
+
+}
+
+.primeraCeldaTabla{
+
+    border:solid;
+    border-collapse: collapse;
+    border-bottom-color: #f1cdf1;
+    border-left-color: blueviolet;
+    border-top-color: blueviolet;
 }
