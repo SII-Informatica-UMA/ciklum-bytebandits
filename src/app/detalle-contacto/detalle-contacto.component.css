@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    
+    margin: 0px;
+    color:blueviolet;    
+    
+}
+
+
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 680px;
+    height: 150px;
+    background-color: #f1cdf1;
+}
+
+
+
+.seccion{
+
+    
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.titulo{
+    color:blueviolet;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-purple {
+    background-color: #f1cdf1; /* Color de fondo púrpura */
+    color:   blueviolet;  /* Color del texto */
+    border-color: blueviolet; /* Color del borde */
+    margin-right: 10 px;
+}
+
+/* Estilo de botón púrpura al pasar el ratón */
+.btn-purple:hover {
+    background-color: blueviolet; /* Color de fondo púrpura oscuro */
+    border-color: blueviolet; /* Color del borde púrpura oscuro */
+    color: #f1cdf1; /* Color del texto */
+}
+
+.btn-margin{
+    margin-right: 10px;
+}
