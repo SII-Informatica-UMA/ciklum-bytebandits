@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import  {Contacto} from '../contacto';
+import  {Dieta} from '../dieta';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,12 +9,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormularioContactoComponent {
   accion?: "Añadir" | "Editar";
-  contacto: Contacto = {id: 0, nombre: '', apellidos: '', email: '', telefono: ''};
+  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: '', recomendaciones: ''};
 
   constructor(public modal: NgbActiveModal) { }
 
-  guardarContacto(): void {
-    this.modal.close(this.contacto);
+  guardarDieta(): void {
+    this.modal.close(this.dieta);
   }
 
 }

@@ -1,20 +1,32 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-basic-title">{{accion}} contacto</h4>
+  <h4 class="modal-title" id="modal-basic-title">{{accion}} Dieta</h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cierre usuario')"></button>
 </div>
 <div class="modal-body">
   <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input class="form-control" id="nombre" [(ngModel)]="contacto.nombre" placeholder="nombre">
-      <label for="apellidos">Descripción:</label>
-      <input class="form-control" id="apellidos" [(ngModel)]="contacto.apellidos" placeholder="apellidos">
-      <label for="email">Asignado por:</label>
-      <input class="form-control" id="email" [(ngModel)]="contacto.email" placeholder="fulanito@mengano.com">
-      <label for="telefono">Foto:</label>
-      <input class="form-control" id="telefono" [(ngModel)]="contacto.telefono" placeholder="(34) 123456789">
+      <input class="form-control" id="nombre" [(ngModel)]="dieta.nombre" placeholder="nombre">
+      
+      <label for="descripcion">Descripción:</label>
+      <input class="form-control" id="descripcion" [(ngModel)]="dieta.descripcion" placeholder="descripcion">
+      
+      <label for="observaciones">Observaciones:</label>
+      <input class="form-control" id="observaciones" [(ngModel)]="dieta.observaciones" placeholder="observaciones">
+      
+      <label for="objetivo">Objetivo:</label>
+      <input class="form-control" id="objetivo" [(ngModel)]="dieta.objetivo" placeholder="observaciones">
+
+      <label for="duracionDias">Duracion Dias:</label>
+      <input class="form-control" id="duracionDias" [(ngModel)]="dieta.duracionDias" placeholder="duracionDias">
+
+      <label for="alimentos">Alimentos:</label>
+      <input class="form-control" id="alimentos" [(ngModel)]="dieta.alimentos" placeholder="alimentos">
+
+      <label for="recomendaciones">Recomendaciones:</label>
+      <input class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones">
 
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="guardarContacto()">Guardar</button>
+  <button type="button" class="btn btn-outline-dark" (click)="guardarDieta()">Guardar</button>
 </div>

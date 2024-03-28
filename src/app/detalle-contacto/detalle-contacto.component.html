@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Las cuatro fuerzas de la naturaleza</title>
-    <link href="detalle-contacto.component.css" rel="stylesheet">
-</head>
-<body>
-
-  
-
-
-<div class="seccion">
-  <h2 > {{contacto?.nombre}}</h2>
+<div class="container">
+  <h2>{{dieta?.nombre}}</h2>
 
   <div class="card" id="Descripcion">
     <h4 class="titulo">Descripcion</h4>
-    <!-- {{contacto?.email}} -->
+    {{dieta?.descripcion}}
   </div>
 
- 
-
-  <div class="cardDieta" id="email">
+  <!--<div class="card" id="email">
     <h4 class="titulo">Dieta</h4>
-
 
     <TABLE>
       <thead>
@@ -44,22 +28,13 @@
       <TR><TD class="moradoOscuro">Viernes</TD><TD>2<TD>1200<TD>60<TD>80<TD>90</TR>
       <TR><TD class="moradoOscuro">Sábado</TD><TD>2<TD>1200<TD>60<TD>80<TD>90 </TR>
       <TR><TD class="moradoOscuro">Domingo</TD><TD>2<TD>1200<TD>60<TD>80<TD>90</TR>
-
-
   </TABLE>
-    <!-- {{contacto?.email}} -->
-    
-  </div>
+  </div>-->
 
   
 
-
-    
-
-  <div class="modal-footer">
-    <button class="btn btn-purple btn-margin" (click)="eliminarContacto()">Eliminar <i class="bi bi-trash-fill"></i></button>
-    
-    <button class="btn btn-purple btn-margin" (click)="editarContacto()">Editar <i class="bi bi-pencil-fill"></i></button>
+  <div class="modal-footer d-flex justify-content-center">
+    <button class="btn btn-purple btn-margin m-4" (click)="eliminarDieta()">Eliminar <i class="bi bi-trash-fill"></i></button>
+    <button class="btn btn-purple btn-margin m-4" (click)="editarDieta()">Editar <i class="bi bi-pencil-fill"></i></button>
   </div>
-
 </div>

@@ -1,9 +1,9 @@
 import { FormularioContactoComponent } from './formulario-contacto/formulario-contacto.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {ContactosService } from './contactos.service';
+import {ContactosService } from './dieta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Contacto} from './contacto';
+import {Contacto} from './dieta';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';

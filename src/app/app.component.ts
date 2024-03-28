@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Contacto } from './contacto';
-import {ContactosService } from './contactos.service';
+import {Dieta } from './dieta';
+import {DietaService } from './dieta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormularioContactoComponent} from './formulario-contacto/formulario-contacto.component'
 
@@ -9,39 +9,40 @@ import {FormularioContactoComponent} from './formulario-contacto/formulario-cont
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  contactos: Contacto [] = [];
-  contactoElegido?: Contacto;
 
-  constructor(private contactosService: ContactosService, private modalService: NgbModal) { }
+export class AppComponent implements OnInit {
+  dietas: Dieta [] = [];
+  dietaElegida?: Dieta;
+
+  constructor(private dietaService: DietaService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.contactos = this.contactosService.getContactos();
+    this.dietas = this.dietaService.getDietas();
   }
 
-  elegirContacto(contacto: Contacto): void {
-    this.contactoElegido = contacto;
+  elegirDieta(dieta: Dieta): void {
+    this.dietaElegida = dieta;
   }
 
-  aniadirContacto(): void {
+  aniadirDieta(): void {
     let ref = this.modalService.open(FormularioContactoComponent);
     ref.componentInstance.accion = "Añadir";
-    ref.componentInstance.contacto = {id: 0, nombre: '', apellidos: '', email: '', telefono: ''};
-    ref.result.then((contacto: Contacto) => {
-      this.contactosService.addContacto(contacto);
-      this.contactos = this.contactosService.getContactos();
+    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: '', recomendaciones: ''};
+    ref.result.then((dieta: Dieta) => {
+      this.dietaService.addDieta(dieta);
+      this.dietas = this.dietaService.getDietas();
     }, (reason) => {});
 
   }
-  contactoEditado(contacto: Contacto): void {
-    this.contactosService.editarContacto(contacto);
-    this.contactos = this.contactosService.getContactos();
-    this.contactoElegido = this.contactos.find(c => c.id == contacto.id);
+  dietaEditada(dieta: Dieta): void {
+    this.dietaService.editarDieta(dieta);
+    this.dietas = this.dietaService.getDietas();
+    this.dietaElegida = this.dietas.find(c => c.id == dieta.id);
   }
 
-  eliminarContacto(id: number): void {
-    this.contactosService.eliminarContacto(id);
-    this.contactos = this.contactosService.getContactos();
-    this.contactoElegido = undefined;
+  eliminarDieta(id: number): void {
+    this.dietaService.eliminarDieta(id);
+    this.dietas = this.dietaService.getDietas();
+    this.dietaElegida = undefined;
   }
 }

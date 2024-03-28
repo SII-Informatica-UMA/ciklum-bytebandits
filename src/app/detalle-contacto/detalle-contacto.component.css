@@ -1,24 +1,45 @@
-body {
-    font-family: Arial, sans-serif;
-    
-    margin: 0px;
-    color:blueviolet;    
-    
+
+h2 {
+    font-family: 'MyFrida';
+    text-align: center;
+    color: rgb(22, 6, 249);  
 }
 
-
+.container {
+    border: 1px solid #000; /* Ancho del borde y color */
+    border-radius: 5px; /* Opcional: para agregar esquinas redondeadas */
+}
 
 .card {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 20px;
-    width: 680px;
-    height: 150px;
     background-color: #f1cdf1;
 }
 
-.cardDieta{
+.titulo{
+    color:rgb(22, 6, 249);  
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-purple {
+    background-color: #f1cdf1; /* Color de fondo púrpura */
+    color:   rgb(22, 6, 249);   /* Color del texto */
+    border-color: rgb(22, 6, 249);   /* Color del borde */
+}
+
+/* Estilo de botón púrpura al pasar el ratón */
+.btn-purple:hover {
+    background-color: rgb(22, 6, 249);   /* Color de fondo púrpura oscuro */
+    border-color: rgb(22, 6, 249);   /* Color del borde púrpura oscuro */
+    color: #f1cdf1; /* Color del texto */
+}
+
+
+/*.cardDieta{
 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,39 +51,18 @@ body {
 
 }
 
-.seccion{
-
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    color:rgb(22, 6, 249);  
     
-   
+}
+
+seccion{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
-
-
-
-.titulo{
-    color:blueviolet;
-    
-    justify-content: center;
-    align-items: center;
-}
-
-
-.btn-purple {
-    background-color: #f1cdf1; /* Color de fondo púrpura */
-    color:   blueviolet;  /* Color del texto */
-    border-color: blueviolet; /* Color del borde */
-    margin-right: 10 px;
-}
-
-/* Estilo de botón púrpura al pasar el ratón */
-.btn-purple:hover {
-    background-color: blueviolet; /* Color de fondo púrpura oscuro */
-    border-color: blueviolet; /* Color del borde púrpura oscuro */
-    color: #f1cdf1; /* Color del texto */
 }
 
 .btn-margin{
@@ -72,41 +72,38 @@ body {
 
 
 
-
 table{
 
     border-style:solid ;
     border-collapse: collapse;
-    border-color: blueviolet; 
+    border-color: rgb(22, 6, 249);  ; 
     margin: auto;
 
 }
 
 .moradoOscuro{
-    background-color: blueviolet; 
+    background-color: rgb(22, 6, 249);  ; 
     color: #f1cdf1;
     border:solid;
     border-collapse: collapse;
     border-color: #f1cdf1;
-    border-left-color: blueviolet;
+    border-left-color: rgb(22, 6, 249);  ;
 
   
 
 }
 
 .primeraFila{
-    background-color: blueviolet; 
+    background-color: rgb(22, 6, 249);  ; 
     color: #f1cdf1;
 }
-
-
 
 
 
 td{
     border:solid;
     border-collapse: collapse;
-    border-color: blueviolet;
+    border-color: rgb(22, 6, 249);  ;
 
 
 }
@@ -114,17 +111,17 @@ td{
 th{
     border:solid;
     border-collapse: collapse;
-    border-bottom-color: blueviolet;
-    border-top-color: blueviolet;
+    border-bottom-color: rgb(22, 6, 249);  ;
+    border-top-color: rgb(22, 6, 249);  ;
     
 }
 
 .ultimaCeldaTabla{
     border:solid;
     border-collapse: collapse;
-    border-bottom-color: blueviolet;
-    border-right-color: blueviolet;
-    border-top-color: blueviolet;
+    border-bottom-color: rgb(22, 6, 249);  ;
+    border-right-color: rgb(22, 6, 249);  ;
+    border-top-color: rgb(22, 6, 249);  ;
 
 }
 
@@ -133,6 +130,7 @@ th{
     border:solid;
     border-collapse: collapse;
     border-bottom-color: #f1cdf1;
-    border-left-color: blueviolet;
-    border-top-color: blueviolet;
+    border-left-color: rgb(22, 6, 249);  ;
+    border-top-color: rgb(22, 6, 249);  ;
 }
+*/

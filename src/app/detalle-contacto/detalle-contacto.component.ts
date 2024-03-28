@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {Contacto } from '../contacto';
+import {Dieta } from '../dieta';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormularioContactoComponent} from '../formulario-contacto/formulario-contacto.component'
-import { ContactosService } from '../contactos.service';
+import { DietaService } from '../dieta.service';
 
 @Component({
   selector: 'app-detalle-contacto',
@@ -10,22 +10,22 @@ import { ContactosService } from '../contactos.service';
   styleUrls: ['./detalle-contacto.component.css']
 })
 export class DetalleContactoComponent {
-  @Input() contacto?: Contacto;
-  @Output() contactoEditado = new EventEmitter<Contacto>();
-  @Output() contactoEliminado = new EventEmitter<number>();
+  @Input() dieta?: Dieta;
+  @Output() dietaEditada = new EventEmitter<Dieta>();
+  @Output() dietaEliminada = new EventEmitter<number>();
 
-  constructor(private contactosService: ContactosService, private modalService: NgbModal) { }
+  constructor(private dietaService: DietaService, private modalService: NgbModal) { }
 
-  editarContacto(): void {
+  editarDieta(): void {
     let ref = this.modalService.open(FormularioContactoComponent);
     ref.componentInstance.accion = "Editar";
-    ref.componentInstance.contacto = {...this.contacto};
-    ref.result.then((contacto: Contacto) => {
-      this.contactoEditado.emit(contacto);
+    ref.componentInstance.contacto = {...this.dieta};
+    ref.result.then((dieta: Dieta) => {
+      this.dietaEditada.emit(dieta);
     }, (reason) => {});
   }
 
-  eliminarContacto(): void {
-    this.contactoEliminado.emit(this.contacto?.id);
+  eliminarDieta(): void {
+    this.dietaEliminada.emit(this.dieta?.id);
   }
 }
