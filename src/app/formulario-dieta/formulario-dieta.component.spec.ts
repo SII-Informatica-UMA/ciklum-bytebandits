@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormularioContactoComponent } from './formulario-contacto.component';
+import { FormularioDietaComponent } from './formulario-dieta.component';
 import { FormsModule } from '@angular/forms';
 
 describe('El formulario de dietas', () => {
-  let component: FormularioContactoComponent;
-  let fixture: ComponentFixture<FormularioContactoComponent>;
+  let component: FormularioDietaComponent;
+  let fixture: ComponentFixture<FormularioDietaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [FormularioContactoComponent],
+      declarations: [FormularioDietaComponent],
       providers: [NgbActiveModal]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormularioContactoComponent);
+    fixture = TestBed.createComponent(FormularioDietaComponent);
     component = fixture.componentInstance;
   });
 

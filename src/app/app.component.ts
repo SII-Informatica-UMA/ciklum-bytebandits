@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Dieta } from './dieta';
 import {DietaService } from './dieta.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormularioContactoComponent} from './formulario-contacto/formulario-contacto.component'
+import {FormularioDietaComponent} from './formulario-dieta/formulario-dieta.component'
 
 @Component({
   selector: 'app-root',
@@ -11,13 +11,13 @@ import {FormularioContactoComponent} from './formulario-contacto/formulario-cont
 })
 
 export class AppComponent implements OnInit {
-  dietas: Dieta [] = [];
+  dieta: Dieta [] = [];
   dietaElegida?: Dieta;
 
   constructor(private dietaService: DietaService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.dietas = this.dietaService.getDietas();
+    this.dieta = this.dietaService.getDieta();
   }
 
   elegirDieta(dieta: Dieta): void {
@@ -25,24 +25,24 @@ export class AppComponent implements OnInit {
   }
 
   aniadirDieta(): void {
-    let ref = this.modalService.open(FormularioContactoComponent);
+    let ref = this.modalService.open(FormularioDietaComponent);
     ref.componentInstance.accion = "Añadir";
     ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: ''};
     ref.result.then((dieta: Dieta) => {
       this.dietaService.addDieta(dieta);
-      this.dietas = this.dietaService.getDietas();
+      this.dieta = this.dietaService.getDieta();
     }, (reason) => {});
 
   }
   dietaEditada(dieta: Dieta): void {
     this.dietaService.editarDieta(dieta);
-    this.dietas = this.dietaService.getDietas();
-    this.dietaElegida = this.dietas.find(c => c.id == dieta.id);
+    this.dieta = this.dietaService.getDieta();
+    this.dietaElegida = this.dieta.find(c => c.id == dieta.id);
   }
 
   eliminarDieta(id: number): void {
     this.dietaService.eliminarDieta(id);
-    this.dietas = this.dietaService.getDietas();
+    this.dieta = this.dietaService.getDieta();
     this.dietaElegida = undefined;
   }
 }

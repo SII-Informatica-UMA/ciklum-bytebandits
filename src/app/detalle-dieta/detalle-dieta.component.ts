@@ -1,15 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {Dieta } from '../dieta';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormularioContactoComponent} from '../formulario-contacto/formulario-contacto.component'
+import {FormularioDietaComponent} from '../formulario-dieta/formulario-dieta.component'
 import { DietaService } from '../dieta.service';
 
 @Component({
-  selector: 'app-detalle-contacto',
-  templateUrl: './detalle-contacto.component.html',
-  styleUrls: ['./detalle-contacto.component.css']
+  selector: 'app-detalle-dieta',
+  templateUrl: './detalle-dieta.component.html',
+  styleUrls: ['./detalle-dieta.component.css']
 })
-export class DetalleContactoComponent {
+export class DetalleDietaComponent {
   @Input() dieta?: Dieta;
   @Output() dietaEditada = new EventEmitter<Dieta>();
   @Output() dietaEliminada = new EventEmitter<number>();
@@ -17,9 +17,9 @@ export class DetalleContactoComponent {
   constructor(private dietaService: DietaService, private modalService: NgbModal) { }
 
   editarDieta(): void {
-    let ref = this.modalService.open(FormularioContactoComponent);
+    let ref = this.modalService.open(FormularioDietaComponent);
     ref.componentInstance.accion = "Editar";
-    ref.componentInstance.contacto = {...this.dieta};
+    ref.componentInstance.dieta = {...this.dieta};
     ref.result.then((dieta: Dieta) => {
       this.dietaEditada.emit(dieta);
     }, (reason) => {});

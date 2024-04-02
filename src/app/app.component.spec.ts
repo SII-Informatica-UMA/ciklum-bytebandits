@@ -26,7 +26,7 @@ describe('El componente principal', () => {
 
   beforeEach(async () => {
     mockService = {
-      getDietas: () => {
+      getDieta: () => {
         return [
           { id: 1, nombre: 'Dieta1', descripcion: 'Descripción de la dieta 1', observaciones: 'Observaciones de la dieta 1', objetivo: 'Objetivo de la dieta 1', duracionDias: '30', alimentos: 'Alimentos de la dieta 1', recomendaciones: 'Recomendaciones de la dieta 1' },
           { id: 2, nombre: 'Dieta2', descripcion: 'Descripción de la dieta 2', observaciones: 'Observaciones de la dieta 2', objetivo: 'Objetivo de la dieta 2', duracionDias: '30', alimentos: 'Alimentos de la dieta 2', recomendaciones: 'Recomendaciones de la dieta 2' }

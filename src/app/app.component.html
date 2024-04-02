@@ -8,7 +8,7 @@
         <span id="titulo">Dietas</span>
       </header>
       <div class="list-group">
-        <button *ngFor="let dieta of dietas"
+        <button *ngFor="let dieta of dieta"
           class="list-group-item list-group-item-action"
           (click)="elegirDieta(dieta)"
           [class.active]="dieta === dietaElegida">{{dieta.nombre}}
@@ -19,10 +19,10 @@
     </div>
    
     <div class="col" *ngIf="dietaElegida">
-      <app-detalle-contacto [dieta]="dietaElegida"
+      <app-detalle-dieta [dieta]="dietaElegida"
         (dietaEditada)="dietaEditada($event)"
         (dietaEliminada)="eliminarDieta($event)">
-      </app-detalle-contacto>
+      </app-detalle-dieta>
 
         <aside id="columna">
     
