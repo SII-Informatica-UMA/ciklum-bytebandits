@@ -23,7 +23,7 @@ describe('El componente de detalle de dieta', () => {
       descripcion: 'Descripción de la dieta 1',
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
-      duracionDias: 30,
+      duracionDias: '30',
       alimentos: 'Alimentos de la dieta 1',
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
