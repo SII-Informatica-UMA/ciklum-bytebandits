@@ -7,10 +7,10 @@ import { Dieta } from './dieta';
 class MockNgbModal {
   modalRef = {
     componentInstance: {
-      dieta: { id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: '', recomendaciones: '' },
+      dieta: { id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: '' },
       accion: 'Añadir'
     },
-    result: Promise.resolve({ id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: '', recomendaciones: '' })
+    result: Promise.resolve({ id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: '' })
   };
 
   open() {
