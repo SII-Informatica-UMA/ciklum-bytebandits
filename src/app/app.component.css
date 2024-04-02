@@ -1,8 +1,4 @@
-h1{
-    font-family: 'MyFrida';
-    color: rgb(22, 6, 249);
-    text-align: center;
-}
+
 
 
 
@@ -25,4 +21,27 @@ h1{
     50%  { left: 20px; top: 100px;}
     75%  {  left: 20px; top: 0px;}
     100% { left: 20px; top: 100px;}
+}
+
+#principal {
+    display: block;
+    width: 500px;
+    margin: 50px auto;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e1c1e3;
+    background-color:#7a00d14d;
+    border-radius: 25px;
+    box-shadow: #681489 5px 5px 10px;
+}
+
+#titulo {
+    color:rgba(110, 9, 133, 0.3);
+    font: bold 42px Clint Marker, verdana, sans-serif;
+    
+}
+
+@font-face {
+    font-family: 'Clint Marker';
+    src: url('Clint Marker.ttf');
 }
