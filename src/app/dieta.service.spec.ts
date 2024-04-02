@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { DietaService } from './dieta.service';
 
-describe('Los contactos', () => {
+describe('Las dietas', () => {
   let service: DietaService;
 
   beforeEach(() => {
