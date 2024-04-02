@@ -5,7 +5,7 @@ export interface Dieta {
   descripcion: string;
   observaciones: string;
   objetivo: string;
-  duracionDias: number;
+  duracionDias: string;
   alimentos: string;
   recomendaciones: string;
 }
