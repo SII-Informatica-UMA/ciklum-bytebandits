@@ -7,8 +7,20 @@
     color:rgb(0, 0, 94);
     border-width: 10px;
     position: relative;
-    animation: mymove 2s infinite;
-    animation-direction:inherit;
+
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ede0ed; /* Color de fondo */
+    padding: 20px; /* Espaciado interior */
+}
+
+.video-container iframe {
+    width: calc(50% - 10px); /* 50% del ancho del contenedor menos el espaciado */
+    height: 200px; /* Altura de los videos */
+    margin-right: 10px; /* Espacio entre los videos */
 }
 
 @keyframes mymove {
