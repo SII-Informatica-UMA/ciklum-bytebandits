@@ -1,7 +1,3 @@
-
-
-
-
 #columna {
     float: right;
     width: 150px;
@@ -30,15 +26,27 @@
     padding: 15px;
     text-align: center;
     border: 1px solid #e1c1e3;
-    background-color:#7a00d14d;
+    background-color:#dfacdf;
     border-radius: 25px;
     box-shadow: #681489 5px 5px 10px;
 }
 
 #titulo {
-    color:rgba(110, 9, 133, 0.3);
+    color: blue;
     font: bold 42px Clint Marker, verdana, sans-serif;
-    
+}
+
+.btn-purple {
+    background-color: #f1cdf1; /* Color de fondo púrpura */
+    color:   rgb(22, 6, 249);   /* Color del texto */
+    border-color: rgb(22, 6, 249);   /* Color del borde */
+}
+
+/* Estilo de botón púrpura al pasar el ratón */
+.btn-purple:hover {
+    background-color: rgb(22, 6, 249);   /* Color de fondo púrpura oscuro */
+    border-color: rgb(22, 6, 249);   /* Color del borde púrpura oscuro */
+    color: #f1cdf1; /* Color del texto */
 }
 /*
 @font-face {

@@ -1,5 +1,5 @@
 <div class="modal-header Add" >
-  <h4 class="modal-title" id="modal-basic-title">{{accion}} Dieta</h4>
+  <h4>{{accion}} Dieta</h4>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cierre usuario')"></button>
 </div>
 <div class="modal-body cuerpo">
@@ -8,30 +8,26 @@
       <input class="form-control" id="nombre" [(ngModel)]="dieta.nombre" placeholder="nombre">
       
       <label for="descripcion">Descripción:</label>
-      <!--<input class="form-control" id="descripcion" [(ngModel)]="dieta.descripcion" placeholder="descripcion">-->
-      <textarea class="form-control" id="descripcion"[(ngModel)]="dieta.descripcion" placeholder="descripcion"></textarea>
+      <input class="form-control" id="descripcion" [(ngModel)]="dieta.descripcion" placeholder="descripcion">
 
       <label for="observaciones">Observaciones:</label>
-      <!--<input class="form-control" id="observaciones" [(ngModel)]="dieta.observaciones" placeholder="observaciones"> -->
-      <textarea class="form-control" id="observaciones" [(ngModel)]="dieta.observaciones" placeholder="observaciones"></textarea>
+      <input class="form-control" id="observaciones" [(ngModel)]="dieta.observaciones" placeholder="observaciones">
 
       <label for="objetivo">Objetivo:</label>
-      <!--<input class="form-control" id="objetivo" [(ngModel)]="dieta.objetivo" placeholder="observaciones">-->
-      <textarea class="form-control" id="objetivo" [(ngModel)]="dieta.objetivo" placeholder="objetivo"></textarea>  
+      <input class="form-control" id="objetivo" [(ngModel)]="dieta.objetivo" placeholder="observaciones">
 
       <label for="duracionDias">DuracionDias:</label>
       <input class="form-control" id="duracionDias" [(ngModel)]="dieta.duracionDias" placeholder="duracionDias">
 
       <label for="alimentos">Alimentos:</label>
-      <!--<input class="form-control" id="alimentos" [(ngModel)]="dieta.alimentos" placeholder="alimentos">-->
-      <textarea class="form-control" id="alimentos" [(ngModel)]="dieta.alimentos" placeholder="alimentos"></textarea>
+      <input class="form-control" id="alimentos" [(ngModel)]="dieta.alimentos" placeholder="alimentos">
 
       <label for="recomendaciones">Recomendaciones:</label>
-      <!--<input class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones">-->
-      <textarea class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones"></textarea>
+      <input class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones">
 
   </div>
 </div>
-<div class="modal-footer Add">
-  <button type="button" class="btn btn-outline-dark save" (click)="guardarDieta()">Guardar</button>
+<div class="modal-footer d-flex justify-content-center">
+  <button class="btn btn-purple btn-margin m-4" (click)="guardarDieta()">Guardar <i class="bi bi-trash-fill"></i></button>
+
 </div>

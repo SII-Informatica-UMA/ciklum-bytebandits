@@ -1,17 +1,22 @@
 .Add{
-
-    background-color: thistle;;
-
+    background-color:  #e0a7e0;;
 }
 
-.save{
-
-    background-color: antiquewhite;
-
+.btn-purple {
+    background-color: #f1cdf1; /* Color de fondo púrpura */
+    color:   rgb(22, 6, 249);   /* Color del texto */
+    border-color: rgb(22, 6, 249);   /* Color del borde */
 }
 
-.cuerpo{
-
-    background-color: darkorchid; 
-
+/* Estilo de botón púrpura al pasar el ratón */
+.btn-purple:hover {
+    background-color: rgb(22, 6, 249);   /* Color de fondo púrpura oscuro */
+    border-color: rgb(22, 6, 249);   /* Color del borde púrpura oscuro */
+    color: #f1cdf1; /* Color del texto */
 }
+
+h4 {
+    text-align: center;
+    color: blue;
+}
+
