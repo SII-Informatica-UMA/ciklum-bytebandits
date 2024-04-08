@@ -7,6 +7,8 @@ import {DetalleDietaComponent} from '../detalle-dieta/detalle-dieta.component'
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UsuariosService } from '../services/usuarios.service';
+
 
 @Component({
   selector: 'app-root',
@@ -20,10 +22,14 @@ export class DietaPrincipalComponent {
   dieta: Dieta [] = [];
   dietaElegida?: Dieta; 
 
-  constructor(private dietaService: DietaService, private modalService: NgbModal) { }
+  constructor(private dietaService: DietaService, private usuarioService: UsuariosService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.dieta = this.dietaService.getDieta();
+  }
+
+  get usuarioSesion() {
+    return this.usuarioService.getUsuarioSesion();
   }
 
   elegirDieta(dieta: Dieta): void {
