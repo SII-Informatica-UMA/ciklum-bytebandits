@@ -1,0 +1,69 @@
+#columna {
+    float: right;
+    width: 150px;
+    margin: 20px 0px;
+    padding: 20px;
+    background-color: pink;
+    color:rgb(0, 0, 94);
+    border-width: 10px;
+    position: relative;
+
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ede0ed; /* Color de fondo */
+    padding: 20px; /* Espaciado interior */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    width: calc(50% - 10px); /* 50% del ancho del contenedor menos el espaciado */
+    height: 200px; /* Altura de los videos */
+    margin-right: 10px; /* Espacio entre los videos */
+}
+
+@keyframes mymove {
+    0%   {left: 20px; top: 100px;}
+    25%  {left: 20px; top: 50px;}
+    50%  { left: 20px; top: 100px;}
+    75%  {  left: 20px; top: 0px;}
+    100% { left: 20px; top: 100px;}
+}
+
+#principal {
+    display: block;
+    width: 500px;
+    margin: 50px auto;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e1c1e3;
+    background-color:#dfacdf;
+    border-radius: 25px;
+    box-shadow: #681489 5px 5px 10px;
+}
+
+#titulo {
+    color: blue;
+    font: bold 42px Clint Marker, verdana, sans-serif;
+}
+
+.btn-purple {
+    background-color: #f1cdf1; /* Color de fondo púrpura */
+    color:   rgb(22, 6, 249);   /* Color del texto */
+    border-color: rgb(22, 6, 249);   /* Color del borde */
+}
+
+/* Estilo de botón púrpura al pasar el ratón */
+.btn-purple:hover {
+    background-color: rgb(22, 6, 249);   /* Color de fondo púrpura oscuro */
+    border-color: rgb(22, 6, 249);   /* Color del borde púrpura oscuro */
+    color: #f1cdf1; /* Color del texto */
+}
+/*
+@font-face {
+    font-family: 'Clint Marker';
+    src: url('Clint Marker.ttf');
+}*/

@@ -1,48 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import {Dieta } from './dieta';
-import {DietaService } from './dieta.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormularioDietaComponent} from './formulario-dieta/formulario-dieta.component'
+import { Component } from '@angular/core';
+import { CommonModule, TitleCasePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { UsuariosService } from './services/usuarios.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, RouterLink, FormsModule, TitleCasePipe],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+export class AppComponent {
+  _rolIndex: number = 0
 
-export class AppComponent implements OnInit {
-  dieta: Dieta [] = [];
-  dietaElegida?: Dieta;
-
-  constructor(private dietaService: DietaService, private modalService: NgbModal) { }
-
-  ngOnInit(): void {
-    this.dieta = this.dietaService.getDieta();
+  constructor(private usuarioService: UsuariosService, private router: Router) {
+    this.actualizarRol()
   }
 
-  elegirDieta(dieta: Dieta): void {
-    this.dietaElegida = dieta;
+  get rolIndex() {
+    return this._rolIndex;
   }
 
-  aniadirDieta(): void {
-    let ref = this.modalService.open(FormularioDietaComponent);
-    ref.componentInstance.accion = "Añadir";
-    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: ''};
-    ref.result.then((dieta: Dieta) => {
-      this.dietaService.addDieta(dieta);
-      this.dieta = this.dietaService.getDieta();
-    }, (reason) => {});
-
-  }
-  dietaEditada(dieta: Dieta): void {
-    this.dietaService.editarDieta(dieta);
-    this.dieta = this.dietaService.getDieta();
-    this.dietaElegida = this.dieta.find(c => c.id == dieta.id);
+  set rolIndex(i: number) {
+    this._rolIndex = i;
+    this.actualizarRol();
   }
 
-  eliminarDieta(id: number): void {
-    this.dietaService.eliminarDieta(id);
-    this.dieta = this.dietaService.getDieta();
-    this.dietaElegida = undefined;
+  actualizarRol() {
+    let u = this.usuarioSesion;
+    if (u) {
+      this.usuarioService.rolCentro = u.roles[this.rolIndex];
+    } else {
+      this.usuarioService.rolCentro = undefined;
+    }
+  }
+
+  get rol() {
+    return this.usuarioService.rolCentro;
+  }
+
+  get usuarioSesion() {
+    return this.usuarioService.getUsuarioSesion();
+  }
+
+  logout() {
+    this.usuarioService.doLogout();
+    this.actualizarRol();
+    this.router.navigateByUrl('/login');
   }
 }

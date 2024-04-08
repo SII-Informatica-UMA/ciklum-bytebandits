@@ -1,0 +1,40 @@
+<html>
+<head><title>ByteBandits</title></head>
+<body>
+<div class="container">
+  <div>
+    <div>
+      <header id="principal">
+        <span id="titulo">Dietas</span>
+      </header>
+      <div class="list-group">
+        <button *ngFor="let dieta of dieta"
+          class="list-group-item list-group-item-action"
+          (click)="elegirDieta(dieta)"
+          [class.active]="dieta === dietaElegida">{{dieta.nombre}}
+        </button>
+      </div>
+      <br>
+      <div>
+        <button type="button" class="btn btn-purple bi bi-plus-lg mb-4" (click)="aniadirDieta()" > <i class="bi bi-fill"></i></button>
+      </div>
+    </div>
+   
+    <div class="col" *ngIf="dietaElegida">
+        <app-detalle-dieta [dieta]="dietaElegida"
+        (dietaEditada)="dietaEditada($event)"
+        (dietaEliminada)="eliminarDieta($event)"></app-detalle-dieta>
+    </div>
+
+
+    <div class="video-container">
+      Dietas saludables 
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kAaJpo2VZec?autohide=2" allowfullscreen></iframe>
+      Mejores alimentos para bajar de peso
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vDZ18bAtZIk?autohide=2" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
