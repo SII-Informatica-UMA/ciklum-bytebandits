@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsuariosService } from '../services/usuarios.service';
+import { Rol } from '../entities/login';
 
 
 @Component({
@@ -31,6 +32,15 @@ export class DietaPrincipalComponent {
   get usuarioSesion() {
     return this.usuarioService.getUsuarioSesion();
   }
+
+  private get rol() {
+    return this.usuarioService.rolCentro;
+  }
+
+  isAdministrador(): boolean {
+    console.log("Pregunta admin: "+this.rol);
+    return this.rol?.rol == Rol.ADMINISTRADOR;
+  } 
 
   elegirDieta(dieta: Dieta): void {
     this.dietaElegida = dieta;

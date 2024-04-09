@@ -53,7 +53,7 @@
 
   
 
-  <div class="modal-footer d-flex justify-content-center">
+  <div class="modal-footer d-flex justify-content-center" *ngIf="isAdministrador()">
     <button class="btn btn-purple btn-margin m-4" (click)="eliminarDieta()">Eliminar <i class="bi bi-trash-fill"></i></button>
     <button class="btn btn-purple btn-margin m-4" (click)="editarDieta()">Editar <i class="bi bi-pencil-fill"></i></button>
   </div>

@@ -15,7 +15,7 @@
         </button>
       </div>
       <br>
-      <div>
+      <div *ngIf="isAdministrador()">
         <button type="button" class="btn btn-purple bi bi-plus-lg mb-4" (click)="aniadirDieta()" > <i class="bi bi-fill"></i></button>
       </div>
     </div>
