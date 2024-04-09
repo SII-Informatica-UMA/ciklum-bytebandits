@@ -5,16 +5,13 @@
       <p class="align-middle m-1">Bienvenido, {{usuarioSesion.nombre}}</p>
     </div>
     <div class="col-2" >
+      <div *ngIf="isAdministrador()">
+
       <select *ngIf="usuarioSesion" class="form-select" [(ngModel)]="rolIndex">
         <option *ngFor="let rol of usuarioSesion.roles, let i = index" [value]="i" >{{rol.rol | titlecase}} {{rol.nombreCentro?'en '+rol.nombreCentro:''}}</option>
-         <div *ngIf="isAdministrador()">
-
-      <select *ngIf="usuarioSesion " class="form-select" [(ngModel)]="rolIndex">
-           <option *ngFor="let rol of usuarioSesion.roles, let i = index" [value]="i" >{{rol.rol | titlecase}} {{rol.nombreCentro?'en '+rol.nombreCentro:''}}</option>
       </select>
+      </div>
     </div>
-      
-      
     <div class="col-2 m-1">
       <a *ngIf="!usuarioSesion"  [routerLink]="'/login'"><button class="btn btn-primary">Iniciar sesión</button></a>
       <button *ngIf="usuarioSesion"  class="btn btn-primary" (click)="logout()">Cerrar sesión</button>
