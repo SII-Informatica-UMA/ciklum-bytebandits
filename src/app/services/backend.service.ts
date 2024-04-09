@@ -3,7 +3,8 @@ import { Observable, map, of } from "rxjs";
 import { Usuario } from "../entities/usuario";
 import { HttpClient } from "@angular/common/http";
 import { BACKEND_URI } from "../config/config";
-import { JwtResponse } from "../entities/login";
+import { JwtResponse, Rol } from "../entities/login";
+import { Dieta } from "../dieta";
 
 // Este servicio usa el backend real
 
@@ -46,4 +47,35 @@ export class BackendService {
   resetPassword(token: string, password: string): Observable<void> {
     return this.httpClient.post<void>(BACKEND_URI + '/passwordreset', {token: token, password: password});
   }
+
+  //--------------------------------------------------------------------------------------------------------
+
+
+  getDieta(usuario: Usuario): Observable<Dieta[]> {
+    const isEntrenador = usuario.administrador;
+    const endpoint = isEntrenador ? Rol.ENTRENADOR : Rol.CLIENTE;
+    const id = usuario.id;
+    return this.httpClient.get<Dieta[]>(BACKEND_URI + endpoint + id);
+  }
+
+  putDieta(usuario:Usuario):Observable<Dieta>{
+      return this.httpClient.put<Dieta>(BACKEND_URI + '/dieta/' + usuario.id, usuario);
+  }
+
+  postDieta(usuario: Usuario): Observable<Dieta> {
+    return this.httpClient.post<Dieta>(BACKEND_URI + '/dieta', usuario);
+  }
+
+  getDietaById(id: number): Observable<Dieta> {
+    return this.httpClient.get<Dieta>(BACKEND_URI + '/dieta/' + id);
+  }
+
+  putDietaById(dieta:Dieta):Observable<Dieta>{
+    return this.httpClient.put<Dieta>(BACKEND_URI + '/dieta/' + dieta.id, dieta);
+  }
+
+deleteDieta(id: number): Observable<void> {
+  return this.httpClient.delete<void>(BACKEND_URI + '/dieta/' + id);
+}
+
 }
