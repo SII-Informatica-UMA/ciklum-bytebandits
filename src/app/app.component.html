@@ -15,7 +15,6 @@
     </div>
       
       
-    </div>
     <div class="col-2 m-1">
       <a *ngIf="!usuarioSesion"  [routerLink]="'/login'"><button class="btn btn-primary">Iniciar sesión</button></a>
       <button *ngIf="usuarioSesion"  class="btn btn-primary" (click)="logout()">Cerrar sesión</button>
