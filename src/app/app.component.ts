@@ -3,6 +3,8 @@ import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { UsuariosService } from './services/usuarios.service';
+import { Rol } from './entities/login';
+
 
 @Component({
   selector: 'app-root',
@@ -35,6 +37,10 @@ export class AppComponent {
       this.usuarioService.rolCentro = undefined;
     }
   }
+    isAdministrador(): boolean {
+    console.log("Pregunta admin: "+this.rol);
+    return this.rol?.rol == Rol.ADMINISTRADOR;
+  } 
 
   get rol() {
     return this.usuarioService.rolCentro;
