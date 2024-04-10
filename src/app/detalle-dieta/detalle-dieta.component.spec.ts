@@ -24,7 +24,7 @@ describe('El componente de detalle de dieta', () => {
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: '30',
-      alimentos: 'Alimentos de la dieta 1',
+      alimentos: ['Alimentos de la dieta 1'],
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
     component.dieta = dieta;
@@ -41,7 +41,7 @@ describe('El componente de detalle de dieta', () => {
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
-      alimentos: 'Alimentos de la dieta 1',
+      alimentos: ['Alimentos de la dieta 1'],
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
     component.dieta = dieta;
@@ -58,7 +58,7 @@ describe('El componente de detalle de dieta', () => {
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
-      alimentos: 'Alimentos de la dieta 1',
+      alimentos: ['Alimentos de la dieta 1'],
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
     component.dieta = dieta;
@@ -75,7 +75,7 @@ describe('El componente de detalle de dieta', () => {
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
-      alimentos: 'Alimentos de la dieta 1',
+      alimentos: ['Alimentos de la dieta 1'],
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
     component.dieta = dieta;
@@ -92,7 +92,7 @@ describe('El componente de detalle de dieta', () => {
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
-      alimentos: 'Alimentos de la dieta 1',
+      alimentos: ['Alimentos de la dieta 1'],
       recomendaciones: 'Recomendaciones de la dieta 1'
     };
     component.dieta = dieta;

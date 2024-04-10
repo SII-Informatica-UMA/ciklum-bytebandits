@@ -18,8 +18,10 @@ export class FormularioDietaComponent {
 
   usuarios: Usuario [] = [];
 
+  usuariosSeleccionados: Usuario [] = [];
+
   accion?: "Añadir" | "Editar";
-  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: '', usuarioAsociado: {id: 0,
+  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: '', usuarioAsociado: {id: 0,
     nombre: '',
     apellido1: '',
     apellido2: '',
@@ -34,6 +36,7 @@ export class FormularioDietaComponent {
    }
 
   guardarDieta(): void {
+    this.usuariosSeleccionados.push(this.dieta.usuarioAsociado);
     this.modal.close(this.dieta);
     console.log(this.usuarios);
   }
