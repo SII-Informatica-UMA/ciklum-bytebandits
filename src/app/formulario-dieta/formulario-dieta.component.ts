@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FormularioDietaComponent {
   accion?: "Añadir" | "Editar";
-  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: ''};
+  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: [], recomendaciones: ''};
 
   constructor(public modal: NgbActiveModal) { }
 
