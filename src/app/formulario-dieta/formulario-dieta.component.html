@@ -25,6 +25,12 @@
       <label for="recomendaciones">Recomendaciones:</label>
       <input class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones">
 
+      <label for="usuarioAsociado">Asociar a:</label>
+      <select class="form-control" id="idCliente" [(ngModel)]="dieta.usuarioAsociado" required>
+        <option *ngFor="let usuario of getUsuarios()"
+        value={{usuario}}>{{usuario.nombre}}</option>
+      </select>
+
   </div>
 </div>
 <div class="modal-footer d-flex justify-content-center">

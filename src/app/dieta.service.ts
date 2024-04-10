@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Dieta } from './dieta';
+import { usuarios } from './services/usuarios.db.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,27 @@ import {Dieta } from './dieta';
 
 export class DietaService {
   private dieta: Dieta [] = [
-    {id: 1, nombre: 'Dieta 1', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: 30, alimentos: ['Arroz', 'Pollo'], recomendaciones: 'Ninguna'},
-    {id: 2, nombre: 'Dieta 2', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: 30, alimentos: ['Arroz', 'Pollo'], recomendaciones: 'Ninguna'},
-    {id: 3, nombre: 'Dieta 3', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: 30, alimentos: ['Arroz', 'Pollo'], recomendaciones: 'Ninguna'},
+    {id: 1, nombre: 'Dieta 1', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: '30', alimentos: 'Arroz, Pollo', recomendaciones: 'Ninguna', usuarioAsociado: {id: 0,
+      nombre: "",
+      apellido1: '',
+      apellido2: '',
+      email: '',
+      administrador: false,
+      password: ''}},
+    {id: 2, nombre: 'Dieta 2', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: '30', alimentos: 'Arroz, Pollo', recomendaciones: 'Ninguna', usuarioAsociado: {id: 0,
+      nombre: "",
+      apellido1: '',
+      apellido2: '',
+      email: '',
+      administrador: false,
+      password: ''}},
+    {id: 3, nombre: 'Dieta 3', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: '30', alimentos: 'Arroz, Pollo', recomendaciones: 'Ninguna', usuarioAsociado: {id: 0,
+      nombre: "Alba",
+      apellido1: '',
+      apellido2: '',
+      email: '',
+      administrador: false,
+      password: ''}},
   ];
 
   constructor() { }

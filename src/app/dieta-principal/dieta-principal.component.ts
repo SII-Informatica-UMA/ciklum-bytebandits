@@ -49,7 +49,7 @@ export class DietaPrincipalComponent {
   aniadirDieta(): void {
     let ref = this.modalService.open(FormularioDietaComponent);
     ref.componentInstance.accion = "Añadir";
-    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: 0, alimentos: [], recomendaciones: ''};
+    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: '', alimentos: '', recomendaciones: ''};
     ref.result.then((dieta: Dieta) => {
       this.dietaService.addDieta(dieta);
       this.dieta = this.dietaService.getDieta();

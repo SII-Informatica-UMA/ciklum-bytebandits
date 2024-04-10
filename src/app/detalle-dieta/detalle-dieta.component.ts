@@ -26,6 +26,8 @@ export class DetalleDietaComponent {
     return this.usuarioService.getUsuarioSesion();
   }
 
+ 
+
   private get rol() {
     return this.usuarioService.rolCentro;
   }

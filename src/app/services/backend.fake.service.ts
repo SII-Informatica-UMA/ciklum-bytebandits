@@ -8,7 +8,7 @@ import { FRONTEND_URI } from "../config/config";
 
 // Este servicio imita al backend pero utiliza localStorage para almacenar los datos
 
-const usuariosC: Usuario [] = [
+export const usuariosC: Usuario [] = [
   {
     id: 1,
     nombre: 'Admin',

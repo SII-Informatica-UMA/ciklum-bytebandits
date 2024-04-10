@@ -3,6 +3,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioDietaComponent } from './formulario-dieta.component';
 import { FormsModule } from '@angular/forms';
 
+
+
 describe('El formulario de dietas', () => {
   let component: FormularioDietaComponent;
   let fixture: ComponentFixture<FormularioDietaComponent>;
