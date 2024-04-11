@@ -26,19 +26,10 @@
       <input class="form-control" id="recomendaciones" [(ngModel)]="dieta.recomendaciones" placeholder="recomendaciones">
 
 
-      <!--<label for="usuarioAsociado">Asociar a:</label>
-      <select class="form-control" id="idCliente" [(ngModel)]="dieta.usuarioAsociado" required >
-        <option *ngFor="let usuario of getUsuarios()"
-        value={{usuario}}>{{usuario.nombre}}</option>
-      </select>-->
-
       <label for="idCliente">Usuario Asociado:</label>
-<select class="form-control" id="idCliente" [(ngModel)]="dieta.idCliente">
-  <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.id}}</option>
-</select>
-
-
-      
+      <select class="form-control" id="idCliente" [(ngModel)]="dieta.idCliente">
+        <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.nombre}}</option>
+      </select>
 
   </div>
 </div>
