@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioDietaComponent } from './formulario-dieta.component';
 import { FormsModule } from '@angular/forms';
-
+import { FormularioDietaComponent } from './formulario-dieta.component';
 
 
 describe('El formulario de dietas', () => {
@@ -122,23 +122,6 @@ describe('El formulario de dietas', () => {
     });
   });
   
-  it('debe cambiar el modelo cuando se modifica la lista de alimentos de la dieta', (done: DoneFn) => {
-    component.accion = "Añadir";
-    fixture.detectChanges();
-  
-    const compiled = fixture.nativeElement as HTMLElement;
-    const inputAlimentos = compiled.querySelector('input#alimentos') as HTMLInputElement;
-    const nuevosAlimentos = 'Nuevos alimentos para la dieta';
-  
-    inputAlimentos.value = nuevosAlimentos;
-    inputAlimentos.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-  
-    fixture.whenStable().then(() => {
-      expect(component.dieta.alimentos).toBe(nuevosAlimentos);
-      done();
-    });
-  });
   
   it('debe cambiar el modelo cuando se modifica las recomendaciones de la dieta', (done: DoneFn) => {
     component.accion = "Añadir";

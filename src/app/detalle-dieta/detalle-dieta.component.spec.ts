@@ -1,19 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DetalleContactoComponent } from './detalle-contacto.component';
+import { DetalleDietaComponent } from './detalle-dieta.component'
 import { Dieta } from '../dieta';
 
 describe('El componente de detalle de dieta', () => {
-  let component: DetalleContactoComponent;
-  let fixture: ComponentFixture<DetalleContactoComponent>;
+  let component: DetalleDietaComponent;
+  let fixture: ComponentFixture<DetalleDietaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetalleContactoComponent ]
+      declarations: [ DetalleDietaComponent ]
     })
     .compileComponents();
+  });
 
-    fixture = TestBed.createComponent(DetalleContactoComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DetalleDietaComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('debe mostrar la descripción de la dieta', () => {
@@ -23,9 +26,11 @@ describe('El componente de detalle de dieta', () => {
       descripcion: 'Descripción de la dieta 1',
       observaciones: 'Observaciones de la dieta 1',
       objetivo: 'Objetivo de la dieta 1',
-      duracionDias: '30',
+      duracionDias: 30,
       alimentos: ['Alimentos de la dieta 1'],
-      recomendaciones: 'Recomendaciones de la dieta 1'
+      recomendaciones: 'Recomendaciones de la dieta 1',
+      idCliente: 1,
+      idEntrenador:1
     };
     component.dieta = dieta;
     fixture.detectChanges();
@@ -42,7 +47,9 @@ describe('El componente de detalle de dieta', () => {
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
       alimentos: ['Alimentos de la dieta 1'],
-      recomendaciones: 'Recomendaciones de la dieta 1'
+      recomendaciones: 'Recomendaciones de la dieta 1',
+      idCliente: 1,
+      idEntrenador:1
     };
     component.dieta = dieta;
     fixture.detectChanges();
@@ -59,7 +66,9 @@ describe('El componente de detalle de dieta', () => {
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
       alimentos: ['Alimentos de la dieta 1'],
-      recomendaciones: 'Recomendaciones de la dieta 1'
+      recomendaciones: 'Recomendaciones de la dieta 1',
+      idCliente: 1,
+      idEntrenador:1
     };
     component.dieta = dieta;
     fixture.detectChanges();
@@ -76,12 +85,14 @@ describe('El componente de detalle de dieta', () => {
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
       alimentos: ['Alimentos de la dieta 1'],
-      recomendaciones: 'Recomendaciones de la dieta 1'
+      recomendaciones: 'Recomendaciones de la dieta 1',
+      idCliente: 1,
+      idEntrenador:1
     };
     component.dieta = dieta;
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('#Alimentos')?.textContent).toContain(dieta.alimentos);
+    expect(compiled.querySelector('#Alimentos')?.textContent).toContain(dieta.alimentos[0]);
   });
 
   it('debe mostrar las recomendaciones de la dieta', () => {
@@ -93,14 +104,13 @@ describe('El componente de detalle de dieta', () => {
       objetivo: 'Objetivo de la dieta 1',
       duracionDias: 30,
       alimentos: ['Alimentos de la dieta 1'],
-      recomendaciones: 'Recomendaciones de la dieta 1'
+      recomendaciones: 'Recomendaciones de la dieta 1',
+      idCliente: 1,
+      idEntrenador:1
     };
     component.dieta = dieta;
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#Recomendaciones')?.textContent).toContain(dieta.recomendaciones);
   });
-
 });
-
-
