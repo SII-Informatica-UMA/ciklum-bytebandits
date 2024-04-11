@@ -5,6 +5,7 @@ import { SECRET_JWT } from "../config/config";
 import { from } from "rxjs";
 import * as jose from 'jose';
 import { FRONTEND_URI } from "../config/config";
+import { Dieta } from "../dieta";
 
 // Este servicio imita al backend pero utiliza localStorage para almacenar los datos
 
@@ -56,11 +57,16 @@ export const usuariosC: Usuario [] = [
   },
 ];
 
+const dietasC: Dieta[] = [
+  {id: 1, nombre: 'Dieta 1', descripcion:'Una dieta equilibrada incluye una variedad de alimentos nutritivos como proteínas magras, carbohidratos complejos, grasas saludables y vitaminas/minerales, evitando el exceso de azúcares y alimentos procesados. Es crucial ajustar las porciones según las necesidades individuales y mantener un equilibrio entre la ingesta de calorías y el gasto energético.', observaciones: 'Ninguna', objetivo: 'Aumentar masa muscular', duracionDias: 30, alimentos: ['Arroz', 'Pollo'], recomendaciones: 'Ninguna', idCliente: 1 , idEntrenador:1},
+]
+
 @Injectable({
   providedIn: 'root'
 })
 export class BackendFakeService {
   private usuarios: Usuario [];
+  private dietas: Dieta [];
   private forgottenPasswordTokens;
 
   constructor() {
@@ -77,6 +83,14 @@ export class BackendFakeService {
     } else {
       this.forgottenPasswordTokens = new Map();
     }
+
+    let _dietas = localStorage.getItem('dietas');
+    if(_dietas) {
+      this.dietas = JSON.parse(_dietas);
+    } else {
+      this.dietas = [...dietasC];
+    }
+
   }
 
   getUsuarios(): Observable<Usuario[]> {
@@ -204,4 +218,79 @@ export class BackendFakeService {
     return Math.random().toString(36).substring(2);
   }
 
+  //--------------------------------------------------------------------------------------------------------
+
+
+/*  getDietas(): Observable<Dieta[]> {
+    return of(this.dietas);
+  }
+
+  getDietasByClientId (idCliente: number): Observable<Dieta[]> {
+    let dietasCliente: Dieta [] = [];
+    console.log('HOLA desde backend.service.ts');  
+    if (idCliente != -1) {
+      this.dietas.forEach((dieta: Dieta) => {
+        if (dieta.clientes.includes(idCliente)) {
+          dietasCliente.push(dieta);
+        }
+      });
+    }
+    return of (dietasCliente);
+  }
+  
+  getDietaByUserId(userId: number): Dieta {
+      const dieta = this.dietas.find(d => d.clientes && d.clientes.includes(userId));
+      return dieta as Dieta;
+  }
+
+  postDieta(idEntrenador: number, dieta: Dieta): Observable<Dieta> {
+    let u = this.dietas.find(d => d.nombre == dieta.nombre);
+    if (!dieta.nombre) {
+      return new Observable<Dieta>(observer => {
+        observer.error('El nombre es obligatorio');
+      });
+    }
+    if (u) {
+      return new Observable<Dieta>(observer => {
+        observer.error('Ya hay una dieta con ese nombre');
+      });
+    }
+
+    dieta.id = this.dietas.map(u => u.id).reduce((a, b) => Math.max(a, b)) + 1;
+    dieta.idEntrenador = idEntrenador;
+    this.dietas.push(dieta);
+    this.guardarDietasEnLocalStorage();
+    return of(dieta);
+  } 
+
+  private guardarDietasEnLocalStorage() {
+    localStorage.setItem('dietas', JSON.stringify(this.dietas));
+  }
+
+  putDieta(dieta: Dieta): Observable<Dieta> {
+    let d = this.dietas.find(d => d.id == dieta.id);
+    if (!d) {
+      return new Observable<Dieta>(observer => {
+        observer.error('La dieta no existe');
+      });
+    }
+
+    Object.assign(d, dieta);
+    this.guardarDietasEnLocalStorage();
+    return of(d);
+  }
+
+
+  deleteDieta(id: number): Observable<void> {
+    let i = this.dietas.findIndex(d => d.id == id);
+    if (i < 0)  {
+      return new Observable<void>(observer => {
+        observer.error('La dieta no existe');
+      });
+    }
+    this.dietas.splice(i, 1);
+    this.guardarDietasEnLocalStorage();
+    return of();
+  }
+*/
 }

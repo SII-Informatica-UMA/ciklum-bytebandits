@@ -74,8 +74,8 @@ export class BackendService {
     return this.httpClient.put<Dieta>(BACKEND_URI + '/dieta/' + dieta.id, dieta);
   }
 
-deleteDieta(id: number): Observable<void> {
-  return this.httpClient.delete<void>(BACKEND_URI + '/dieta/' + id);
-}
+  deleteDieta(id: number): Observable<void> {
+    return this.httpClient.delete<void>(BACKEND_URI + '/dieta/' + id);
+  }
 
 }
