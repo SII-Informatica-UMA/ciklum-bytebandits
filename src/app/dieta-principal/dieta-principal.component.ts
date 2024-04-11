@@ -26,7 +26,19 @@ export class DietaPrincipalComponent {
   constructor(private dietaService: DietaService, private usuarioService: UsuariosService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.dieta = this.dietaService.getDieta();
+
+    const usuarioActual = this.usuarioService.getUsuarioSesion();
+
+    //this.dieta = this.dietaService.getDieta();
+    if(usuarioActual&& this.isAdministrador()){
+
+      this.dieta = this.dietaService.getDieta();
+
+    }
+    else if (usuarioActual) {
+      this.dieta = this.dietaService.getDieta().filter(dieta => dieta.idCliente === usuarioActual.id);
+    }
+
   }
 
   get usuarioSesion() {
@@ -49,7 +61,7 @@ export class DietaPrincipalComponent {
   aniadirDieta(): void {
     let ref = this.modalService.open(FormularioDietaComponent);
     ref.componentInstance.accion = "Añadir";
-    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: ''};
+    ref.componentInstance.dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: '',idCliente: null, idEntrenador: null};
     ref.result.then((dieta: Dieta) => {
       this.dietaService.addDieta(dieta);
       this.dieta = this.dietaService.getDieta();

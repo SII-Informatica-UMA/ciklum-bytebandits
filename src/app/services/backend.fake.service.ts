@@ -27,6 +27,33 @@ export const usuariosC: Usuario [] = [
     administrador: false,
     password: '5678'
   },
+  {
+    id: 3,
+    nombre: 'Juan',
+    apellido1: 'García',
+    apellido2: 'Ramos',
+    email: 'antonio@uma.es',
+    administrador: false,
+    password: '5678'
+  },
+  {
+    id: 4,
+    nombre: 'Alba',
+    apellido1: 'García',
+    apellido2: 'Ramos',
+    email: 'antonio@uma.es',
+    administrador: false,
+    password: '5678'
+  },
+  {
+    id: 5,
+    nombre: 'Carmen',
+    apellido1: 'García',
+    apellido2: 'Ramos',
+    email: 'antonio@uma.es',
+    administrador: false,
+    password: '5678'
+  },
 ];
 
 @Injectable({

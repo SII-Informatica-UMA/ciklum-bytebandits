@@ -8,5 +8,6 @@ export interface Dieta {
   duracionDias: number|null;
   alimentos: string[];
   recomendaciones: string;
-  usuarioAsociado:Usuario
+  idCliente: number|null;
+  idEntrenador: number|null;
 }

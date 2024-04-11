@@ -16,42 +16,40 @@ import { UsuariosService } from '../services/usuarios.service';
 })
 export class FormularioDietaComponent {
 
-  usuarios: Usuario [] = [];
-
-  usuariosSeleccionados: Usuario [] = [];
-
   accion?: "Añadir" | "Editar";
-  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: '', usuarioAsociado: {id: 0,
-    nombre: '',
-    apellido1: '',
-    apellido2: '',
-    email: '',
-    administrador: false,
-    password: ''}};
+  dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: '', idCliente: null, idEntrenador: null};
 
 
   constructor(private usuariosService: UsuariosService,public modal: NgbActiveModal) {
-    this.actualizarUsuarios();
+    //this.actualizarUsuarios();
 
    }
 
+
+   /*onUsuarioSeleccionado(usuarioId: number): void {
+    // Opcional: Puedes realizar validaciones o lógica adicional aquí
+    const usuarioSeleccionado = this.usuarios.find(usuario => usuario.id === usuarioId);
+    if (usuarioSeleccionado) {
+      this.usuariosSeleccionados = [usuarioSeleccionado]; // Actualiza el array con el usuario seleccionado
+    } else {
+      this.usuariosSeleccionados = []; // Vacía el array si se deselecciona
+    }
+  }*/
+  
+
   guardarDieta(): void {
-    this.usuariosSeleccionados.push(this.dieta.usuarioAsociado);
     this.modal.close(this.dieta);
-    console.log(this.usuarios);
+    console.log(this.dieta.idCliente);
   }
 
   getUsuarios(){
-    this.actualizarUsuarios();
+    //this.actualizarUsuarios();
 
-    return this.usuarios;
+    return this.dieta.idCliente;
   }
-
- 
-
-  actualizarUsuarios() {
+ /*actualizarUsuarios() {
     this.usuariosService.getUsuarios().subscribe(usuarios => {
       this.usuarios = usuarios;
     });
-  }
+  }*/
 }
