@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Dieta } from '../dieta';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { usuariosC } from '../services/backend.fake.service';
 import { Usuario } from '../entities/usuario';
 import { UsuariosService } from '../services/usuarios.service';
+import { DietaService } from '../dieta.service';
 
 @Component({
   selector: 'app-formulario-dieta',
@@ -18,13 +19,16 @@ export class FormularioDietaComponent {
 
   accion?: "Añadir" | "Editar";
   dieta: Dieta = {id: 0, nombre: '', descripcion: '', observaciones: '', objetivo: '', duracionDias: null, alimentos: [], recomendaciones: '', idCliente: null, idEntrenador: null};
-
+  usuarios: Usuario[] = [];
 
   constructor(private usuariosService: UsuariosService,public modal: NgbActiveModal) {
-    //this.actualizarUsuarios();
+    this.actualizarUsuarios();
 
    }
 
+  ngOnInit(): void {
+    this.actualizarUsuarios();
+  }
 
    /*onUsuarioSeleccionado(usuarioId: number): void {
     // Opcional: Puedes realizar validaciones o lógica adicional aquí
@@ -35,21 +39,19 @@ export class FormularioDietaComponent {
       this.usuariosSeleccionados = []; // Vacía el array si se deselecciona
     }
   }*/
-  
+
 
   guardarDieta(): void {
+    this.actualizarUsuarios();
     this.modal.close(this.dieta);
     console.log(this.dieta.idCliente);
   }
 
-  getUsuarios(){
-    //this.actualizarUsuarios();
 
-    return this.dieta.idCliente;
-  }
- /*actualizarUsuarios() {
+
+  actualizarUsuarios() {
     this.usuariosService.getUsuarios().subscribe(usuarios => {
       this.usuarios = usuarios;
     });
-  }*/
+  }
 }

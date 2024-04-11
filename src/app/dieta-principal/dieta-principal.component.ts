@@ -25,11 +25,9 @@ export class DietaPrincipalComponent {
 
   constructor(private dietaService: DietaService, private usuarioService: UsuariosService, private modalService: NgbModal) { }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
 
     const usuarioActual = this.usuarioService.getUsuarioSesion();
-
-    //this.dieta = this.dietaService.getDieta();
     if(usuarioActual&& this.isAdministrador()){
 
       this.dieta = this.dietaService.getDieta();
@@ -39,6 +37,20 @@ export class DietaPrincipalComponent {
       this.dieta = this.dietaService.getDieta().filter(dieta => dieta.idCliente === usuarioActual.id);
     }
 
+  }*/
+
+  ngOnInit(): void {
+    const usuarioActual = this.usuarioService.getUsuarioSesion();
+    if (usuarioActual && this.isAdministrador()) {
+      this.dieta = this.dietaService.getDieta();
+    } else if (usuarioActual) {
+      // Filtrar las dietas para el usuario actual
+      this.dietaService.getDieta().forEach(dieta => {
+        if (dieta.idCliente === usuarioActual.id) {
+          this.dieta.push(dieta);
+        }
+      });
+    }
   }
 
   get usuarioSesion() {
@@ -68,6 +80,8 @@ export class DietaPrincipalComponent {
     }, (reason) => {});
 
   }
+
+  
   dietaEditada(dieta: Dieta): void {
     this.dietaService.editarDieta(dieta);
     this.dieta = this.dietaService.getDieta();

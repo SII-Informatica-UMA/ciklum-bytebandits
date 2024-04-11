@@ -32,7 +32,7 @@ export const usuariosC: Usuario [] = [
     nombre: 'Juan',
     apellido1: 'García',
     apellido2: 'Ramos',
-    email: 'antonio@uma.es',
+    email: 'juan@uma.es',
     administrador: false,
     password: '5678'
   },
@@ -41,8 +41,8 @@ export const usuariosC: Usuario [] = [
     nombre: 'Alba',
     apellido1: 'García',
     apellido2: 'Ramos',
-    email: 'antonio@uma.es',
-    administrador: false,
+    email: 'albondiga@uma.es',
+    administrador: true,
     password: '5678'
   },
   {
@@ -50,7 +50,7 @@ export const usuariosC: Usuario [] = [
     nombre: 'Carmen',
     apellido1: 'García',
     apellido2: 'Ramos',
-    email: 'antonio@uma.es',
+    email: '33@uma.es',
     administrador: false,
     password: '5678'
   },
