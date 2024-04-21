@@ -15,7 +15,7 @@ public class Dieta {
     private int id;
     private int usuarioId;
 
-    public Dieta(String nombre, String descripcion, String observaciones, String objetivo, int durDias, ArrayList<String> alimentos, String recomendaciones, int id, int usuarioId, int creadorId) {
+    public Dieta(String nombre, String descripcion, String observaciones, String objetivo, int durDias, ArrayList<String> alimentos, String recomendaciones, int id, int usuarioId) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.observaciones = observaciones;
