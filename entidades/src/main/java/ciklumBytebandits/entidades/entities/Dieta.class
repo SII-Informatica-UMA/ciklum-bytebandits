@@ -1,0 +1,125 @@
+package es.uma.informatica.sii.fitness.dietas.entities;
+
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import java.util.List;
+import java.util.Set;
+
+@Entity
+public class Dieta {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String nombre;
+    private String descripcion;
+    private String observaciones;
+    private String objetivo;
+    private Integer duracionDias;
+    @ElementCollection
+    private List<String> alimentos;
+    private String recomendaciones;
+    private Long idEntrenador;
+    @ElementCollection
+    private Set<Long> idCliente;
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public String getObservaciones() {
+        return this.observaciones;
+    }
+
+    public String getObjetivo() {
+        return this.objetivo;
+    }
+
+    public Integer getDuracionDias() {
+        return this.duracionDias;
+    }
+
+    public List<String> getAlimentos() {
+        return this.alimentos;
+    }
+
+    public String getRecomendaciones() {
+        return this.recomendaciones;
+    }
+
+    public Long getIdEntrenador() {
+        return this.idEntrenador;
+    }
+
+    public Set<Long> getIdClientes() {
+        return this.idCliente;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public void setNombre(final String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(final String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setObservaciones(final String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public void setObjetivo(final String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    public void setDuracionDias(final Integer duracionDias) {
+        this.duracionDias = duracionDias;
+    }
+
+    public void setAlimentos(final List<String> alimentos) {
+        this.alimentos = alimentos;
+    }
+
+    public void setRecomendaciones(final String recomendaciones) {
+        this.recomendaciones = recomendaciones;
+    }
+
+    public void setIdEntrenador(final Long idEntrenador) {
+        this.idEntrenador = idEntrenador;
+    }
+
+    public void setIdClientes(final Set<Long> idClientes) {
+        this.idClientes = idClientes;
+    }
+
+    public Dieta(final Long id, final String nombre, final String descripcion, final String observaciones, final String objetivo, final Integer duracionDias, final List<String> alimentos, final String recomendaciones, final Long idEntrenador, final Set<Long> idClientes) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.observaciones = observaciones;
+        this.objetivo = objetivo;
+        this.duracionDias = duracionDias;
+        this.alimentos = alimentos;
+        this.recomendaciones = recomendaciones;
+        this.idEntrenador = idEntrenador;
+        this.idClientes = idClientes;
+    }
+
+    public Dieta() {
+    }
+
+   
+}
