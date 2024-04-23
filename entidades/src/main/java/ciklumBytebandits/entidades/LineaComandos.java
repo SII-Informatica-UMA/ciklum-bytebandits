@@ -18,15 +18,6 @@ public class LineaComandos implements CommandLineRunner {
 	@Transactional
 	public void run(String... args) throws Exception {
 
-		for (String s: args) {
-			System.out.println(s);
-		}
-
-		if (args.length > 0) {
-			for (Dieta b: repository.findByNombre(args[0])) {
-				System.out.println(b);
-			}
-		}
 	}
 
 }

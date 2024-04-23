@@ -1,8 +1,12 @@
 package ciklumBytebandits.entidades.entities;
 
 import java.util.Objects;
+
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 
+@Entity
 public class Dieta {
 
     private String nombre;
@@ -10,8 +14,11 @@ public class Dieta {
     private String observaciones;
     private String objetivo;
     private int duracionDias;
+    @ElementCollection
     private ArrayList<String> alimentos;
     private String recomendaciones;
+    @Id
+    @GeneratedValue
     private int id;
     private int usuarioId;
 
