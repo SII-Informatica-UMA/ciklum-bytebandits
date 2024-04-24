@@ -5,10 +5,15 @@ import java.util.Objects;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Set;
+
 
 @Entity
 public class Dieta {
-
+    
+    @Id
+    @GeneratedValue
+    private Long id;
     private String nombre;
     private String descripcion;
     private String observaciones;
@@ -17,27 +22,15 @@ public class Dieta {
     @ElementCollection
     private ArrayList<String> alimentos;
     private String recomendaciones;
-    @Id
-    @GeneratedValue
-    private int id;
-    private int usuarioId;
-
-    public Dieta(String nombre, String descripcion, String observaciones, String objetivo, int durDias, ArrayList<String> alimentos, String recomendaciones, int id, int usuarioId) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.observaciones = observaciones;
-        this.objetivo = objetivo;
-        this.duracionDias = durDias;
-        this.alimentos = alimentos;
-        this.recomendaciones = recomendaciones;
-        this.id = id;
-        this.usuarioId = usuarioId;
-    }
+    private Long entrenadorId;
+    @ElementCollection
+    private Set<Long> clienteId;
+    
 
     public String getNombre(){
         return nombre;
     }
-
+    
     public String getDescripcion(){
         return descripcion;
     }
@@ -62,18 +55,30 @@ public class Dieta {
         return recomendaciones;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
+    public Long getEntrenador() {
+        return entrenadorId;
+    }
+
+    public void setEntrenador(Long entrenadorId) {
+        this.entrenadorId = entrenadorId;
+    }
+
+    public Set<Long> getCliente() {
+        return clienteId;
+    }
+
+    public void setCliente(Set<Long> clienteId) {
+        this.clienteId = clienteId;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -97,44 +102,29 @@ public class Dieta {
     public void setRecomendaciones(String recomendaciones) {
         this.recomendaciones = recomendaciones;
     }
-
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Dieta dieta = (Dieta) o;
-        return duracionDias == dieta.duracionDias &&
-                id == dieta.id &&
-                usuarioId == dieta.usuarioId &&
-                Objects.equals(nombre, dieta.nombre) &&
-                Objects.equals(descripcion, dieta.descripcion) &&
-                Objects.equals(observaciones, dieta.observaciones) &&
-                Objects.equals(objetivo, dieta.objetivo) &&
-                Objects.equals(alimentos, dieta.alimentos) &&
-                Objects.equals(recomendaciones, dieta.recomendaciones);
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Dieta other = (Dieta) obj;
+        return Objects.equals(id, other.id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(nombre, descripcion, observaciones, objetivo, duracionDias, alimentos, recomendaciones, id, usuarioId);
+    public int hashCode(){
+        return Objects.hash(nombre, descripcion, observaciones, objetivo, duracionDias, alimentos, recomendaciones, id, entrenadorId , clienteId);
     }
 
     @Override
-    public String toString() {
-        return "Dieta{" +
-                "nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", observaciones='" + observaciones + '\'' +
-                ", objetivo='" + objetivo + '\'' +
-                ", duracionDias=" + duracionDias +
-                ", alimentos=" + alimentos +
-                ", recomendaciones='" + recomendaciones + '\'' +
-                ", id=" + id +
-                ", usuarioId=" + usuarioId +
-                '}';
+    public String toString(){
+        return "Dieta: "+nombre+ ", descripcion: "+descripcion+", observaciones: "+observaciones
+            + ", objetivo: "+objetivo+ ", duracion: "+duracionDias+ "alimentos: "+alimentos.toString()
+            +", recomendaciones:"+recomendaciones+", id: "+id+", cliente: "+clienteId.toString()+", entrenador: "+entrenadorId;
     }
+
 }

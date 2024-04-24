@@ -10,6 +10,7 @@ import ciklumBytebandits.entidades.repositories.DietaRepository;
 @Component
 public class LineaComandos implements CommandLineRunner {
 	private DietaRepository repository;
+	
 	public LineaComandos(DietaRepository repository) {
 		this.repository = repository;
 	}
@@ -17,7 +18,14 @@ public class LineaComandos implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... args) throws Exception {
-
+		for (String s: args) {
+            System.out.println(s);
+        }
+        if(args.length > 0){
+            for(Dieta d : repository.findByNombre(args[0])){
+                System.out.println(d);
+            }
+        }
 	}
 
 }
