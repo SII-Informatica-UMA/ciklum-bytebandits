@@ -113,7 +113,7 @@ class EntidadesApplicationTests {
 			var peticion = get("http", "localhost", port, "/dieta/1");
 
 			var respuesta = restTemplate.exchange(peticion,
-					new ParameterizedTypeReference<DietaDTO>() {});
+					new ParameterizedTypeReference<DietaDto>() {});
 
 			int statusCode = respuesta.getStatusCode().value();
 
