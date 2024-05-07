@@ -104,7 +104,7 @@ class EntidadesApplicationTests {
 
 	@Nested
 	@DisplayName("cuando la base de datos tiene datos")
-	public class BaseDatosConDatos {
+	public class BaseDatosLlena {
 		
 	}
 
