@@ -14,7 +14,7 @@ public class DietaService {
     private DietaRepository dietaRepo;
 
     public DietaService(DietaRepository dietaRepository) {
-        this.dietaRepo = dietaRepo;
+        this.dietaRepo = dietaRepository;
     }
 
     public List<Dieta> dietasDeEntrenador(Long entrenadorId) {
@@ -36,7 +36,7 @@ public class DietaService {
     public void asociarDieta(Long dietaID, Long clienteId) {
         Optional<Dieta> d = this.obtenerDieta(dietaID);
         d.ifPresent((dieta) -> {
-            dieta.getIdClientes().add(clienteId);
+            dieta.getId().add(clienteId);
             this.dietaRepo.save(dieta);
         });
         d.orElseThrow(DietaException::new);

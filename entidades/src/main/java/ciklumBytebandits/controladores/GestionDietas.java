@@ -3,9 +3,14 @@ package ciklumBytebandits.controladores;
 import java.net.URI;
 import java.util.List;
 import java.util.function.Function;
-
+import ciklumBytebandits.dtos.DietaDto;
+import ciklumBytebandits.dtos.DietaNuevaDto;
 import ciklumBytebandits.entidades.Dieta;
 import ciklumBytebandits.servicios.DietaService;
+import ciklumBytebandits.excepciones.DietaException;
+
+
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -50,7 +55,7 @@ public class GestionDietas {
                             content = {@Content(schema = @Schema(implementation = Void.class))})})
 
 
-    public List<DietaDTO> obtenerDietas(@RequestParam(value = "entrenador", required = false) Long entrenadorId, @RequestParam(value = "cliente", required = false) Long clienteId) {
+    public List<DietaDto> obtenerDietas(@RequestParam(value = "entrenador", required = false) Long entrenadorId, @RequestParam(value = "cliente", required = false) Long clienteId) {
 
         List<Dieta> dietas;
         if (entrenadorId == null && clienteId == null) {
@@ -64,7 +69,7 @@ public class GestionDietas {
         } else {
             dietas = this.dietasService.dietasDeCliente(entrenadorId);
         }
-        return dietas.stream().map(DietaDTO::fromEntity).toList();
+        return dietas.stream().map(DietaDto::fromEntity).toList();
     }
 
     @PostMapping
@@ -75,14 +80,14 @@ public class GestionDietas {
                     @ApiResponse(responseCode = "403", description = "Acceso no autorizado",
                             content = {@Content(schema = @Schema(implementation = Void.class))})})
 
-    public ResponseEntity<DietaDTO> creaDieta(@RequestParam(value = "entrenador", required = true) Long entrenadorId,
-                                              @RequestBody DietaNuevaDTO dietaNuevoDTO, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<DietaDto> creaDieta(@RequestParam(value = "entrenador", required = true) Long entrenadorId,
+                                              @RequestBody DietaNuevaDto dietaNuevoDTO, UriComponentsBuilder uriBuilder) {
         Dieta g = dietaNuevoDTO.toEntity();
         g.setId(null);
-        g.setIdEntrenador(entrenadorId);
+        g.setEntrenador(entrenadorId);
 
         Dieta g2 = this.dietasService.crearActualizarDieta(g);
-        return ResponseEntity.created(generadorUri(uriBuilder.build()).apply(g2)).body(DietaDTO.fromEntity(g2));
+        return ResponseEntity.created(generadorUri(uriBuilder.build()).apply(g2)).body(DietaDto.fromEntity(g2));
     }
 
     private Function<Dieta, URI> generadorUri(UriComponents uriBuilder) {
@@ -98,9 +103,9 @@ public class GestionDietas {
                     @ApiResponse(responseCode = "403", description = "Acceso no autorizado",
                             content = {@Content(schema = @Schema(implementation = Void.class))})})
 
-    public ResponseEntity<DietaDTO> asociaDieta(@RequestParam(value = "cliente", required = true) Long clienteId, @RequestBody DietaDTO dietaDTO) {
-        this.dietasService.asignaDieta(dietaDTO.getId(), clienteId);
-        return ResponseEntity.of(this.dietasService.obtenerDieta(dietaDTO.getId()).map(DietaDTO::fromEntity));
+    public ResponseEntity<DietaDto> asociaDieta(@RequestParam(value = "cliente", required = true) Long clienteId, @RequestBody DietaDto DietaDto) {
+        this.dietasService.asociarDieta(DietaDto.getId(), clienteId);
+        return ResponseEntity.of(this.dietasService.obtenerDieta(DietaDto.getId()).map(DietaDto::fromEntity));
     }
 
 
@@ -113,13 +118,13 @@ public class GestionDietas {
                     @ApiResponse(responseCode = "403", description = "Acceso no autorizado",
                             content = {@Content(schema = @Schema(implementation = Void.class))})})
 
-    public DietaDTO actualizaDieta(@PathVariable Long idDieta, @RequestBody DietaDTO dieta) {
+    public DietaDto actualizaDieta(@PathVariable Long idDieta, @RequestBody DietaDto dieta) {
         this.dietasService.obtenerDieta(idDieta).orElseThrow(() -> {
             return new DietaException();
         });
         dieta.setId(idDieta);
         Dieta g = this.dietasService.crearActualizarDieta(dieta.toEntity());
-        return DietaDTO.fromEntity(g);
+        return DietaDto.fromEntity(g);
     }
 
 
@@ -131,8 +136,8 @@ public class GestionDietas {
                     @ApiResponse(responseCode = "403", description = "Acceso no autorizado",
                             content = {@Content(schema = @Schema(implementation = Void.class))})})
 
-    public ResponseEntity<DietaDTO> getDieta(@PathVariable Long idDieta) {
-        return ResponseEntity.of(this.dietasService.obtenerDieta(idDieta).map(DietaDTO::fromEntity));
+    public ResponseEntity<DietaDto> getDieta(@PathVariable Long idDieta) {
+        return ResponseEntity.of(this.dietasService.obtenerDieta(idDieta).map(DietaDto::fromEntity));
     }
 
     @DeleteMapping({"/{idDieta}"})
@@ -148,7 +153,7 @@ public class GestionDietas {
         this.dietasService.obtenerDieta(idDieta).orElseThrow(() -> {
             return new DietaException();
         });
-        this.dietasService.eliminaDieta(idDieta);
+        this.dietasService.eliminarDieta(idDieta);
     }
 
     @ExceptionHandler({DietaException.class})

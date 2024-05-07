@@ -1,6 +1,7 @@
 package ciklumBytebandits.repositories;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.ArrayList;
 
@@ -20,8 +21,10 @@ public interface DietaRepository extends JpaRepository<Dieta, Integer> {
     @Query("UPDATE Dieta SET clienteId = :clienteId WHERE id = :id AND entrenadorId = :entrenadorId")
     void updateCliente(@Param("entrenadorId") Long entrenadorId, @Param("clienteId") Set<Long> clienteId,@Param("id") Long id);
     */
-    List<Dieta> findByClienteId(Set<Long> clienteId);
+    List<Dieta> findByClienteId(Long clienteId);
     List<Dieta> findByEntrenadorId(Long entrenadorid);
-    List<Dieta> findById(Long id);
+    Optional<Dieta> findById(Long id);
+    void deleteById(Long id);
+
 
 }

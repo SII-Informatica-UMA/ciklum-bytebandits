@@ -21,9 +21,7 @@ public class LineaComandos implements CommandLineRunner {
             System.out.println(s);
         }
         if(args.length > 0){
-            for(Dieta d : repository.findByNombre(args[0])){
-                System.out.println(d);
-            }
+            
         }
 	}
 

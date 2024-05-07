@@ -63,12 +63,17 @@ public class Dieta {
         return entrenadorId;
     }
 
-    public void setEntrenador(Long entrenadorId) {
-        this.entrenadorId = entrenadorId;
-    }
 
     public Set<Long> getCliente() {
         return clienteId;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setEntrenador(Long entrenadorId) {
+        this.entrenadorId = entrenadorId;
     }
 
     public void setCliente(Set<Long> clienteId) {
