@@ -107,7 +107,7 @@ public class GestionDietas {
 
     public ResponseEntity<DietaDto> asociaDieta(@RequestParam(value = "cliente", required = true) Long clienteId, @RequestBody DietaDto DietaDto) {
         this.dietasService.asociarDieta(DietaDto.getId(), clienteId);
-        return ResponseEntity.of(this.dietasService.obtenerDieta(DietaDto.getId()).map(DietaDto::fromEntity));
+       return ResponseEntity.of(this.dietasService.obtenerDieta(DietaDto.getId()).map(ciklumBytebandits.dtos.DietaDto::fromEntity));
     }
     
 
