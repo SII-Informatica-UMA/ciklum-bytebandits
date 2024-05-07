@@ -86,9 +86,7 @@ class EntidadesApplicationTests {
 		return peticion;
 	}
 
-	private void compruebaCampos(Dieta expected, Dieta actual) {
-		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
-	}
+
 
 	private void compruebaCampos(Dieta expected, Dieta actual) {
 		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
@@ -112,7 +110,7 @@ class EntidadesApplicationTests {
 			var peticion = get("http", "localhost", port, "/dieta/1");
 
 			var respuesta = restTemplate.exchange(peticion,
-					new ParameterizedTypeReference<DietaDTO>() {});
+					new ParameterizedTypeReference<DietaDto>() {});
 
 			int statusCode = respuesta.getStatusCode().value();
 
@@ -132,7 +130,25 @@ class EntidadesApplicationTests {
 	@Nested
 	@DisplayName("cuando la base de datos tiene datos")
 	public class BaseDatosLlena {
-		
+
+		@BeforeEach
+		public void insertarDatos() {
+
+			var dieta = new Dieta();
+			dieta.setNombre("Dieta1");
+			dietaRepo.save(dieta);
+		}
+		@Test
+		@DisplayName("obtiene una dieta correctamente")
+		public void errorConProductoConcreto() {
+			var peticion = get("http", "localhost",port, "/dieta/1");
+
+			var respuesta = restTemplate.exchange(peticion,
+					new ParameterizedTypeReference<DietaDto>() {});
+
+			assertThat(respuesta.getStatusCode().value()).isEqualTo(200);
+			assertThat(respuesta.getBody().getNombre()).isEqualTo("Hamburguesa");
+		}
 	}
 
 }
