@@ -134,11 +134,8 @@ class EntidadesApplicationTests {
 
 		@BeforeEach
 		public void insertarDatos() {
-
-			var dieta = new Dieta();
-			dieta.setNombre("Dieta1");
-			dietaRepo.save(dieta);
 		}
+		
 		@Test
 		@DisplayName("obtiene una dieta correctamente")
 		public void errorConProductoConcreto() {
