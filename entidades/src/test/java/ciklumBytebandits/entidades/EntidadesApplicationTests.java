@@ -105,6 +105,7 @@ class EntidadesApplicationTests {
 	@Nested
 	@DisplayName("cuando la base de datos está vacía")
 	public class BaseDatosVacia {
+		
 		@Test
 		@DisplayName("error al obtener una dieta concreta")
 		public void errorAlObtenerDietaConcreta() {
