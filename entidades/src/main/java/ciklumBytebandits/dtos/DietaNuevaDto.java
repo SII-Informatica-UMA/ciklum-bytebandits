@@ -1,6 +1,6 @@
 package ciklumBytebandits.dtos;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ciklumBytebandits.entidades.Dieta;
 
@@ -10,7 +10,7 @@ public class DietaNuevaDto {
     private String observaciones;
     private String objetivo;
     private Integer duracionDias;
-    private List<String> alimentos;
+    private ArrayList<String> alimentos;
     private String recomendaciones;
 
     public void setNombre(final String nombre) {
@@ -33,7 +33,7 @@ public class DietaNuevaDto {
         this.duracionDias = duracionDias;
     }
 
-    public void setAlimentos(final List<String> alimentos) {
+    public void setAlimentos(final ArrayList<String> alimentos) {
         this.alimentos = alimentos;
     }
 
@@ -41,7 +41,7 @@ public class DietaNuevaDto {
         this.recomendaciones = recomendaciones;
     }
 
-    public DietaNuevaDto(final String nombre, final String descripcion, final String observaciones, final String objetivo, final Integer duracionDias, final List<String> alimentos, final String recomendaciones) {
+    public DietaNuevaDto(final String nombre, final String descripcion, final String observaciones, final String objetivo, final Integer duracionDias, final ArrayList<String> alimentos, final String recomendaciones) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.observaciones = observaciones;
@@ -57,7 +57,7 @@ public class DietaNuevaDto {
         private String observaciones;
         private String objetivo;
         private Integer duracionDias;
-        private List<String> alimentos;
+        private ArrayList<String> alimentos;
         private String recomendaciones;
 
         DietaNuevaDtoBuilder() {
@@ -88,7 +88,7 @@ public class DietaNuevaDto {
             return this;
         }
 
-        public DietaNuevaDtoBuilder alimentos(final List<String> alimentos) {
+        public DietaNuevaDtoBuilder alimentos(final ArrayList<String> alimentos) {
             this.alimentos = alimentos;
             return this;
         }
@@ -134,7 +134,7 @@ public class DietaNuevaDto {
         return this.duracionDias;
     }
 
-    public List<String> getAlimentos() {
+    public ArrayList<String> getAlimentos() {
         return this.alimentos;
     }
 

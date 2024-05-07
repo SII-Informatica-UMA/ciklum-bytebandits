@@ -3,11 +3,12 @@ package ciklumBytebandits.entidades;
 import java.util.Objects;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.util.ArrayList;
 import java.util.Set;
 
-
+@Builder
 @Entity
 public class Dieta {
     

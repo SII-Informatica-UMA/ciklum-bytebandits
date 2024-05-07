@@ -33,14 +33,14 @@ public class DietaService {
         return this.dietaRepo.findById(id);
     }
 
-    public void asociarDieta(Long dietaID, Long clienteId) {
+    /*public void asociarDieta(Long dietaID, Long clienteId) {
         Optional<Dieta> d = this.obtenerDieta(dietaID);
         d.ifPresent((dieta) -> {
             dieta.getId().add(clienteId);
             this.dietaRepo.save(dieta);
         });
         d.orElseThrow(DietaException::new);
-    }
+    }*/
 
     public void eliminarDieta(Long id) {
         this.dietaRepo.deleteById(id);
