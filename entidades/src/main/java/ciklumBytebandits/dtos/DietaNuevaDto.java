@@ -3,7 +3,9 @@ package ciklumBytebandits.dtos;
 import java.util.ArrayList;
 
 import ciklumBytebandits.entidades.Dieta;
+import lombok.Builder;
 
+@Builder
 public class DietaNuevaDto {
     private String nombre;
     private String descripcion;
