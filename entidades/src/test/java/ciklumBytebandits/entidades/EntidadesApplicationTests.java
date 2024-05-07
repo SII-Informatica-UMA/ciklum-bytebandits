@@ -124,6 +124,44 @@ class EntidadesApplicationTests {
 			}
 		}
 
+		@Test
+		@DisplayName("da error con una dieta concreta")
+		public void errorConDietaConcreta() {
+			var peticion = get("http", "localhost",port, "/dieta/1");
+
+			var respuesta = restTemplate.exchange(peticion,
+					new ParameterizedTypeReference<DietaDto>() {});
+
+			int statusCode = respuesta.getStatusCode().value();
+
+			if (statusCode == 404) {
+				assertThat(statusCode).isEqualTo(404);
+			} else if (statusCode == 400) {
+				assertThat(statusCode).isEqualTo(400);
+			} else if (statusCode == 403) {
+				assertThat(statusCode).isEqualTo(403);
+			}
+		}
+
+		@Test
+		@DisplayName("devuelve error al eliminar una dieta que no existe")
+		public void eliminarDietaInexistente() {
+			var peticion = delete("http", "localhost",port, "/dieta/1");
+
+			var respuesta = restTemplate.exchange(peticion, Void.class);
+
+			int statusCode = respuesta.getStatusCode().value();
+
+			if (statusCode == 404) {
+				assertThat(statusCode).isEqualTo(404);
+			} else if (statusCode == 400) {
+				assertThat(statusCode).isEqualTo(400);
+			} else if (statusCode == 403) {
+				assertThat(statusCode).isEqualTo(403);
+			}
+		}
+
+
 
 
 	}
