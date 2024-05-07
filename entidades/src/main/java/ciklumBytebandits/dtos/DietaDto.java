@@ -89,4 +89,4 @@ public class DietaDto extends DietaNuevaDto{
     public static DietaDto fromEntity(Dieta dieta) {
         return builder().id(dieta.getId()).nombre(dieta.getNombre()).descripcion(dieta.getDescripcion()).observaciones(dieta.getObservaciones()).objetivo(dieta.getObjetivo()).duracionDias(dieta.getDuracionDias()).recomendaciones(dieta.getRecomendaciones()).build();
     }
-}
+

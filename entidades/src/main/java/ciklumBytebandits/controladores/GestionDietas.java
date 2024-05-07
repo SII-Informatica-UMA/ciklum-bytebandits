@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.function.Function;
 import ciklumBytebandits.dtos.DietaDto;
 import ciklumBytebandits.dtos.DietaNuevaDto;
+
 import ciklumBytebandits.entidades.Dieta;
+import ciklumBytebandits.dtos.DietaDto;
+import ciklumBytebandits.dtos.DietaNuevaDto;
 import ciklumBytebandits.servicios.DietaService;
 import ciklumBytebandits.excepciones.DietaException;
 
