@@ -1,4 +1,4 @@
-package ciklumBytebandits.entidades.entities;
+package ciklumBytebandits.entidades;
 
 import java.util.Objects;
 

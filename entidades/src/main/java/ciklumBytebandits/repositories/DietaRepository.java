@@ -1,4 +1,4 @@
-package ciklumBytebandits.entidades.repositories;
+package ciklumBytebandits.repositories;
 
 import java.util.List;
 import java.util.Set;
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import ciklumBytebandits.entidades.entities.Dieta;
+import ciklumBytebandits.entidades.Dieta;
 
 public interface DietaRepository extends JpaRepository<Dieta, Integer> {
 

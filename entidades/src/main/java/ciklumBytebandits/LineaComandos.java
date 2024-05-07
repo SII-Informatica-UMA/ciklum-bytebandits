@@ -1,11 +1,10 @@
-package ciklumBytebandits.entidades;
+package ciklumBytebandits;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import ciklumBytebandits.entidades.entities.Dieta;
-import ciklumBytebandits.entidades.repositories.DietaRepository;
+import ciklumBytebandits.repositories.DietaRepository;
 
 @Component
 public class LineaComandos implements CommandLineRunner {
