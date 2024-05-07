@@ -1,5 +1,4 @@
 package ciklumBytebandits.excepciones;
 
-public class DietaException {
-    
+public class DietaException extends RuntimeException {
 }
