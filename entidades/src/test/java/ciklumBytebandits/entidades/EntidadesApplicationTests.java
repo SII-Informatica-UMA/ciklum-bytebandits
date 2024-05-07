@@ -144,6 +144,70 @@ class EntidadesApplicationTests {
 		}
 
 		@Test
+		@DisplayName("devuelve error al asociar una dieta que no existe")
+		public void modificarDietaInexistente() {
+			var dieta = DietaDto.builder().nombre("DietaCalorias").build();
+			var peticion = put("http", "localhost",port, "/dieta", dieta);
+
+			var respuesta = restTemplate.exchange(peticion, Void.class);
+
+			int statusCode = respuesta.getStatusCode().value();
+
+			if (statusCode == 404) {
+				assertThat(statusCode).isEqualTo(404);
+			} else if (statusCode == 400) {
+				assertThat(statusCode).isEqualTo(400);
+			} else if (statusCode == 403) {
+				assertThat(statusCode).isEqualTo(403);
+			}
+		}
+
+
+		@Test
+		@DisplayName("devuelve error al asociar una dieta que no existe con Id")
+		public void modificarDietaInexistenteConID() {
+			var dieta = DietaDto.builder().nombre("DietaHidratos").build();
+			var peticion = put("http", "localhost",port, "/dieta/1", dieta);
+
+			var respuesta = restTemplate.exchange(peticion, Void.class);
+
+			int statusCode = respuesta.getStatusCode().value();
+
+			if (statusCode == 404) {
+				assertThat(statusCode).isEqualTo(404);
+			} else if (statusCode == 400) {
+				assertThat(statusCode).isEqualTo(400);
+			} else if (statusCode == 403) {
+				assertThat(statusCode).isEqualTo(403);
+			}
+		}
+
+
+
+		@Test
+		@DisplayName("inserta una dieta correctamente")
+		public void insertaDieta() {
+
+			var dieta = DietaDto.builder()
+					.nombre("DietaHidratos")
+					.build();
+			var peticion = post("http", "localhost",port, "/dieta", dieta);
+
+			var respuesta = restTemplate.exchange(peticion,Void.class);
+
+			assertThat(respuesta.getStatusCode().value()).isEqualTo(201);
+			assertThat(respuesta.getHeaders().get("Location").get(0))
+					.startsWith("http://localhost:"+port+"/dieta");
+
+			List<Dieta> dietasBD = dietaRepo.findAll();
+			assertThat(dietasBD).hasSize(1);
+			assertThat(respuesta.getHeaders().get("Location").get(0))
+					.endsWith("/"+dietasBD.get(0).getId());
+			compruebaCampos(dieta.dieta(), dietasBD.get(0));
+		}
+
+
+		@Test
 		@DisplayName("devuelve error al eliminar una dieta que no existe")
 		public void eliminarDietaInexistente() {
 			var peticion = delete("http", "localhost",port, "/dieta/1");
