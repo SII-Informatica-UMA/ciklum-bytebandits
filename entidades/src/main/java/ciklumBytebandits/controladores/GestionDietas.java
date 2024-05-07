@@ -97,7 +97,7 @@ public class GestionDietas {
         };
     }
 
-    /*
+
     @PutMapping
     @Operation(description = "El entrenador asocia dietas a entrenador",
             responses = {@ApiResponse(responseCode = "200",
@@ -109,7 +109,7 @@ public class GestionDietas {
         this.dietasService.asociarDieta(DietaDto.getId(), clienteId);
         return ResponseEntity.of(this.dietasService.obtenerDieta(DietaDto.getId()).map(DietaDto::fromEntity));
     }
-    */
+    
 
 
 
