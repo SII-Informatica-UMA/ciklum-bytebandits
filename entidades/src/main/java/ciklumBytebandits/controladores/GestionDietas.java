@@ -4,7 +4,10 @@ import java.net.URI;
 import java.util.List;
 import java.util.function.Function;
 
+import ciklumBytebandits.dtos.DietaDTO;
 import ciklumBytebandits.entidades.Dieta;
+import ciklumBytebandits.dtos.DietaDto;
+import ciklumBytebandits.dtos.DietaNuevaDto;
 import ciklumBytebandits.servicios.DietaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.headers.Header;

@@ -1,5 +1,5 @@
 package ciklumBytebandits.dtos;
 
-public class DietaDto {
+public class DietaDTO {
     
 }
