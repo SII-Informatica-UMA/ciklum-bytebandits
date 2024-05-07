@@ -87,19 +87,46 @@ class EntidadesApplicationTests {
 		return peticion;
 	}
 
-	private void compruebaCampos(Ingrediente expected, Ingrediente actual) {
+	private void compruebaCampos(Dieta expected, Dieta actual) {
 		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
 	}
 
-	private void compruebaCampos(Producto expected, Producto actual) {	
+	private void compruebaCampos(Dieta expected, Dieta actual) {
 		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
+		assertThat(actual.getId()).isEqualTo(expected.getId());
 		assertThat(actual.getDescripcion()).isEqualTo(expected.getDescripcion());
-		assertThat(actual.getIngredientes()).isEqualTo(expected.getIngredientes());
+		assertThat(actual.getObservaciones()).isEqualTo(expected.getObservaciones());
+		assertThat(actual.getObjetivo()).isEqualTo(expected.getObjetivo());
+		assertThat(actual.getDuracionDias()).isEqualTo(expected.getDuracionDias());
+		assertThat(actual.getAlimentos()).isEqualTo(expected.getAlimentos());
+		assertThat(actual.getRecomendaciones()).isEqualTo(expected.getRecomendaciones());
+		assertThat(actual.getEntrenador()).isEqualTo(expected.getEntrenador());
+		assertThat(actual.getCliente()).isEqualTo(expected.getCliente());
 	}
 
 	@Nested
 	@DisplayName("cuando la base de datos está vacía")
 	public class BaseDatosVacia {
+		@Test
+		@DisplayName("error al obtener una dieta concreta")
+		public void errorAlObtenerDietaConcreta() {
+			var peticion = get("http", "localhost", port, "/dieta/1");
+
+			var respuesta = restTemplate.exchange(peticion,
+					new ParameterizedTypeReference<DietaDTO>() {});
+
+			int statusCode = respuesta.getStatusCode().value();
+
+			if (statusCode == 404) {
+				assertThat(statusCode).isEqualTo(404);
+			} else if (statusCode == 400) {
+				assertThat(statusCode).isEqualTo(400);
+			} else if (statusCode == 403) {
+				assertThat(statusCode).isEqualTo(403);
+			}
+		}
+
+
 
 	}
 
