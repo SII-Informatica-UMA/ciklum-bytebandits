@@ -18,11 +18,11 @@ public class DietaService {
     }
 
     public List<Dieta> dietasDeEntrenador(Long entrenadorId) {
-        return this.dietaRepo.findAllByIdEntrenador(entrenadorId);
+        return this.dietaRepo.findByEntrenadorId(entrenadorId);
     }
 
     public List<Dieta> dietasDeCliente(Long clienteId) {
-        return this.dietaRepo.findByIdClientesContaining(clienteId);
+        return this.dietaRepo.findByClienteId(clienteId);
     }
 
     public Dieta crearActualizarDieta(Dieta g) {
