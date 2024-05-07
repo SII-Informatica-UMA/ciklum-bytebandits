@@ -27,8 +27,9 @@ import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriBuilderFactory;
 
 import ciklumBytebandits.repositories.DietaRepository;
-import ciklumBytebandits.dtos.*;
-import ciklumBytebandits.entidades.*;
+import ciklumBytebandits.dtos.DietaDto;
+import ciklumBytebandits.dtos.DietaNuevaDto;
+import ciklumBytebandits.entidades.Dieta;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @DisplayName("En el servicio de dietas")

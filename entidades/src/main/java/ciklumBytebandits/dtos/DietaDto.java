@@ -1,8 +1,9 @@
 package ciklumBytebandits.dtos;
 
 import ciklumBytebandits.entidades.Dieta;
+import lombok.Builder;
 
-
+@Builder
 public class DietaDto extends DietaNuevaDto{
     private Long id;
 
