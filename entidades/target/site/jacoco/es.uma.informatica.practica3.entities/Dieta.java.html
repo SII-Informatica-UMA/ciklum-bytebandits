@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dieta.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">practica3</a> &gt; <a href="index.source.html" class="el_package">es.uma.informatica.practica3.entities</a> &gt; <span class="el_source">Dieta.java</span></div><h1>Dieta.java</h1><pre class="source lang-java linenums">package es.uma.informatica.practica3.entities;
+
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import java.util.List;
+import java.util.Set;
+import lombok.*;
+
+@Getter
+<span class="nc" id="L12">@Setter</span>
+<span class="fc" id="L13">@AllArgsConstructor</span>
+<span class="fc" id="L14">@NoArgsConstructor</span>
+<span class="pc" id="L15">@Builder</span>
+<span class="nc bnc" id="L16" title="All 86 branches missed.">@EqualsAndHashCode</span>
+<span class="nc" id="L17">@ToString</span>
+@Entity
+public class Dieta {
+   @Id
+   @GeneratedValue
+<span class="nc" id="L22">   private Long id;</span>
+<span class="nc" id="L23">   private String nombre;</span>
+<span class="nc" id="L24">   private String descripcion;</span>
+<span class="nc" id="L25">   private String observaciones;</span>
+<span class="nc" id="L26">   private String objetivo;</span>
+<span class="nc" id="L27">   private Integer duracionDias;</span>
+   @ElementCollection
+<span class="nc" id="L29">   private List&lt;String&gt; alimentos;</span>
+<span class="nc" id="L30">   private String recomendaciones;</span>
+<span class="nc" id="L31">   private Long idEntrenador;</span>
+   @ElementCollection
+<span class="nc" id="L33">   private Set&lt;Long&gt; idClientes;</span>
+
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
