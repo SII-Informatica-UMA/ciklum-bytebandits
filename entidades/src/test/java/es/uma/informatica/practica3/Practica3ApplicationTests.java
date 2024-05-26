@@ -1,43 +1,56 @@
 package es.uma.informatica.practica3;
 
+
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
-import java.util.Arrays;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
+import org.springframework.http.*;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.DirtiesContext.ClassMode;
+import org.springframework.test.web.client.ExpectedCount;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriBuilderFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import es.uma.informatica.practica3.controllers.GestionDietas;
 import es.uma.informatica.practica3.controllers.Mapper;
 import es.uma.informatica.practica3.dtos.DietaDTO;
 import es.uma.informatica.practica3.dtos.DietaNuevaDTO;
 import es.uma.informatica.practica3.entities.Dieta;
 import es.uma.informatica.practica3.repositories.DietaRepository;
+import es.uma.informatica.practica3.security.JwtUtil;
+import es.uma.informatica.practica3.services.DietaService;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@DisplayName("En el servicio de productos")
-@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@DisplayName("En el servicio de dietas")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@ExtendWith(MockitoExtension.class)
 class Practica3ApplicationTests {
-
-	@Autowired
+@Autowired
 	private TestRestTemplate restTemplate;
+
+	@Mock
+	private RestTemplate restMock;
 
 	@Value(value="${local.server.port}")
 	private int port;
@@ -45,6 +58,23 @@ class Practica3ApplicationTests {
 	@Autowired
 	private DietaRepository dietaRepo;
 
+	@Autowired
+	private JwtUtil jwtUtil;
+
+	private String token;
+
+	@InjectMocks
+	private DietaService dietaService;
+	@InjectMocks
+	private GestionDietas controlador;
+
+	private Mapper mapper = new Mapper();
+
+	@BeforeEach
+	public void initializeDatabase() {
+		token = jwtUtil.generateToken("1");
+		dietaRepo.deleteAll();
+	}
 
 	private URI uri(String scheme, String host, int port, String ...paths) {
 		UriBuilderFactory ubf = new DefaultUriBuilderFactory();
@@ -56,10 +86,22 @@ class Practica3ApplicationTests {
 		}
 		return ub.build();
 	}
+	public URI uriQuery(String scheme, String host, int port, String query, String ...paths) {
+		UriBuilderFactory ubf = new DefaultUriBuilderFactory();
+		UriBuilder ub = ubf.builder()
+				.scheme(scheme)
+				.host(host).port(port);
+		for (String path: paths) {
+			ub = ub.path(path);
+		}
+		ub = ub.query("plan=1");
+		return ub.build();
+	}
 
 	private RequestEntity<Void> get(String scheme, String host, int port, String path) {
 		URI uri = uri(scheme, host,port, path);
 		var peticion = RequestEntity.get(uri)
+				.header("Authorization", "Bearer " + token)
 				.accept(MediaType.APPLICATION_JSON)
 				.build();
 		return peticion;
@@ -68,6 +110,7 @@ class Practica3ApplicationTests {
 	private RequestEntity<Void> delete(String scheme, String host, int port, String path) {
 		URI uri = uri(scheme, host,port, path);
 		var peticion = RequestEntity.delete(uri)
+				.header("Authorization", "Bearer " + token)
 				.build();
 		return peticion;
 	}
@@ -75,6 +118,7 @@ class Practica3ApplicationTests {
 	private <T> RequestEntity<T> post(String scheme, String host, int port, String path, T object) {
 		URI uri = uri(scheme, host,port, path);
 		var peticion = RequestEntity.post(uri)
+				.header("Authorization", "Bearer " + token)
 				.contentType(MediaType.APPLICATION_JSON)
 				.body(object);
 		return peticion;
@@ -83,72 +127,41 @@ class Practica3ApplicationTests {
 	private <T> RequestEntity<T> put(String scheme, String host, int port, String path, T object) {
 		URI uri = uri(scheme, host,port, path);
 		var peticion = RequestEntity.put(uri)
+				.header("Authorization", "Bearer " + token)
 				.contentType(MediaType.APPLICATION_JSON)
 				.body(object);
 		return peticion;
 	}
-
-	/*private void compruebaCampos(Ingrediente expected, Ingrediente actual) {
-		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
-	}
-
-	private void compruebaCampos(Producto expected, Producto actual) {	
-		assertThat(actual.getNombre()).isEqualTo(expected.getNombre());
-		assertThat(actual.getDescripcion()).isEqualTo(expected.getDescripcion());
-		assertThat(actual.getIngredientes()).isEqualTo(expected.getIngredientes());
-	}*/
+	
 
 	@Nested
 	@DisplayName("cuando la base de datos esta vacia")
 	public class BaseDatosVacia {
 
 		@Test
-		@DisplayName("devuelve la lista de dietas vacia")
-		public void devuelveLista() {
-			
-			var peticion = get("http", "localhost",port, "/dieta");
-			
-			var respuesta = restTemplate.exchange(peticion,
-					new ParameterizedTypeReference<List<DietaDTO>>() {});
-			
-			assertThat(respuesta.getStatusCode().value()).isEqualTo(400);
-		}
-
-		@Test
-		@DisplayName("error al obtener una dieta concreta")
-		public void errorAlObtenerDietaConcreta() {
-			var peticion = get("http", "localhost", port, "/dieta/1");
-
-			var respuesta = restTemplate.exchange(peticion,
-					new ParameterizedTypeReference<DietaDTO>() {
-					});
-
-			int statusCode = respuesta.getStatusCode().value();
-
-			assertThat(statusCode).isEqualTo(404);
-		}
-
-		@Test
-		@DisplayName("devuelve error al asociar una dieta que no existe")
-		public void modificarDietaInexistente() {
-			var dieta = DietaNuevaDTO.builder()
-			.nombre("Dieta1")
-			.descripcion("a")
-			.observaciones("b")
-			.objetivo("c")
-			.alimentos(Arrays.asList("alimento1", "alimento2"))
-			.recomendaciones("d")
-			.build();
-			
-			var peticion = put("http", "localhost",port, "/dieta/1", dieta);
-
+		@DisplayName("lanza error cuando se llama a delete y la dieta no existe")
+		public void errorDeleteSesion() {
+			var peticion = delete("http","localhost",port,"/dieta/1");
 			var respuesta = restTemplate.exchange(peticion, Void.class);
-
-			int statusCode = respuesta.getStatusCode().value();
-
-			assertThat(statusCode).isEqualTo(404);
+			assertThat(respuesta.getStatusCode().value()).isEqualTo(404);
 		}
 
+		@Test
+		@DisplayName("lanza error cuando se llama a get y la dieta no existe")
+		public void errorGetSesion() {
+			var peticion = get("http","localhost",port,"/dieta/1");
+			var respuesta = restTemplate.exchange(peticion, new ParameterizedTypeReference<DietaDTO>() {});
+			assertThat(respuesta.getStatusCode().value()).isEqualTo(404);
+		}
+
+		@Test
+		@DisplayName("lanza error cuando se llama a put y la dieta no existe")
+		public void errorPutSesion() {
+			DietaDTO dietaDTO = DietaDTO.builder().build();
+			var peticion = put("http","localhost",port,"/dieta/1", dietaDTO);
+			var respuesta = restTemplate.exchange(peticion, new ParameterizedTypeReference<DietaDTO>() {});
+			assertThat(respuesta.getStatusCode().value()).isEqualTo(404);
+		}
 
 	
 	}
@@ -156,41 +169,6 @@ class Practica3ApplicationTests {
 	@Nested
 	@DisplayName("cuando la base de datos tiene datos")
 	public class BaseDatosConDatos {
-		private DietaNuevaDTO d1 = DietaNuevaDTO.builder()
-			.nombre("Dieta1")
-			.descripcion("a")
-			.observaciones("b")
-			.objetivo("c")
-			.alimentos(Arrays.asList("alimento1", "alimento2"))
-			.recomendaciones("d")
-			.build();
-
-		private DietaNuevaDTO d2 = DietaNuevaDTO.builder()
-			.nombre("Dieta2")
-			.descripcion("a")
-			.observaciones("b")
-			.objetivo("c")
-			.alimentos(Arrays.asList("alimento1", "alimento2"))
-			.recomendaciones("d")
-			.build();
-
-
-		@BeforeEach
-		public void introduceDatos() {
-			dietaRepo.save(Mapper.toDieta(d1));
-			dietaRepo.save(Mapper.toDieta(d2));
-		}
-
-		/*@Test
-		@DisplayName("devuelve la lista de dietas correctamente")
-		public void devuelveLista() {
-			var peticion = get("http", "localhost",port, "/dieta");
-			
-			var respuesta = restTemplate.exchange(peticion,
-					new ParameterizedTypeReference<List<DietaDTO>>() {});
-			
-			assertThat(respuesta.getStatusCode().value()).isEqualTo(200);
-			assertThat(respuesta.getBody()).hasSize(2);
-		}*/
+		
 	}
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JwtUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NivelesInstituto</a> &gt; <a href="index.source.html" class="el_package">es.uma.informatica.practica3.security</a> &gt; <span class="el_source">JwtUtil.java</span></div><h1>JwtUtil.java</h1><pre class="source lang-java linenums">package es.uma.informatica.practica3.security;
+//import java.security.interfaces.RSAPrivateKey;
+//import java.security.interfaces.RSAPublicKey;
+//
+//import org.springframework.stereotype.Component;
+//
+//import com.auth0.jwt.JWT;
+//import com.auth0.jwt.algorithms.Algorithm;
+//import com.jcodepoint.jwt.util.JksProperties;
+//
+//@Component
+//public class JwtUtil {
+//	private RSAPrivateKey privateKey;
+//	private RSAPublicKey publicKey;
+//
+//	public JwtUtil(RSAPublicKey publicKey, RSAPrivateKey privateKey) {
+//		this.privateKey = privateKey;
+//		this.publicKey = publicKey;
+//	}
+//
+//
+//	public String encode(String subject) {
+//		return JWT.create()
+//				.withSubject(subject)
+//				.withExpiresAt(null)
+//				.sign(Algorithm.RSA256(publicKey, privateKey) );
+//	}
+//
+//}
+
+
+
+import java.security.Key;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
+@Component
+<span class="fc" id="L49">public class JwtUtil {</span>
+
+    @Value(&quot;${jwt.secret}&quot;)
+    private String secret;
+
+    @Value(&quot;${jwt.token.validity}&quot;)
+    private long tokenValidity;
+
+    //retrieve username from jwt token
+    public String getUsernameFromToken(String token) {
+<span class="fc" id="L59">        return getClaimFromToken(token, Claims::getSubject);</span>
+    }
+
+    //retrieve expiration date from jwt token
+    public Date getExpirationDateFromToken(String token) {
+<span class="fc" id="L64">        return getClaimFromToken(token, Claims::getExpiration);</span>
+    }
+
+    public &lt;T&gt; T getClaimFromToken(String token, Function&lt;Claims, T&gt; claimsResolver) {
+<span class="fc" id="L68">        final Claims claims = getAllClaimsFromToken(token);</span>
+<span class="fc" id="L69">        return claimsResolver.apply(claims);</span>
+    }
+    //for retrieveing any information from token we will need the secret key
+//	private Claims getAllClaimsFromToken(String token) {
+////		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+//		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+//	}
+
+    private Claims getAllClaimsFromToken(String token) {
+<span class="fc" id="L78">        byte[] keyBytes = secret.getBytes();</span>
+<span class="fc" id="L79">        Key key = Keys.hmacShaKeyFor(keyBytes);</span>
+<span class="fc" id="L80">        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();</span>
+    }
+
+
+    //check if the token has expired
+    public Boolean isTokenExpired(String token) {
+<span class="fc" id="L86">        final Date expiration = getExpirationDateFromToken(token);</span>
+<span class="fc" id="L87">        return expiration.before(new Date());</span>
+    }
+
+    public String generateToken(String userString) {
+<span class="fc" id="L91">        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L92">        return doGenerateToken(claims, userString);</span>
+    }
+
+    //generate token for user
+//    public String generateToken(UserDetails userDetails) {
+//        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();
+//        return doGenerateToken(claims, userDetails.getUsername());
+//    }
+
+//    public String generateToken(Usuario usuario) {
+//        Map&lt;String, Object&gt; claims = new HashMap&lt;&gt;();
+//        return doGenerateToken(claims, usuario.getId().toString());
+//    }
+
+    //while creating the token -
+    //1. Define  claims of the token, like Issuer, Expiration, Subject, and the ID
+    //2. Sign the JWT using the HS512 algorithm and secret key.
+    //3. According to JWS Compact Serialization(https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41#section-3.1)
+    //   compaction of the JWT to a URL-safe string
+//	private String doGenerateToken(Map&lt;String, Object&gt; claims, String subject) {
+//
+//		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
+//				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+//				.signWith(SignatureAlgorithm.HS512, secret).compact();
+//	}
+
+    private String doGenerateToken(Map&lt;String, Object&gt; claims, String subject) {
+<span class="fc" id="L119">        byte[] keyBytes = secret.getBytes();</span>
+<span class="fc" id="L120">        Key key = Keys.hmacShaKeyFor(keyBytes);</span>
+
+
+
+<span class="fc" id="L124">        return Jwts.builder().setClaims(claims).setSubject(subject)</span>
+<span class="fc" id="L125">                .setIssuedAt(new Date(System.currentTimeMillis()))</span>
+<span class="fc" id="L126">                .setExpiration(new Date(System.currentTimeMillis() + tokenValidity * 1000))</span>
+<span class="fc" id="L127">                .signWith(key, SignatureAlgorithm.HS512).compact();</span>
+    }
+
+    //validate token
+    public Boolean validateToken(String token, UserDetails userDetails) {
+<span class="nc" id="L132">        final String username = getUsernameFromToken(token);</span>
+<span class="nc bnc" id="L133" title="All 4 branches missed.">        return (username.equals(userDetails.getUsername()) &amp;&amp; !isTokenExpired(token));</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

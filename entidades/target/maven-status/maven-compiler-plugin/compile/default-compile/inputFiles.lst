@@ -1,9 +1,14 @@
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\dtos\DietaNuevaDTO.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\security\SecurityConfguration.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\Practica3Application.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\dtos\UsuarioDTO.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\exceptions\DietaNoExisteException.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\dtos\DietaDTO.java
-C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\repositories\DietaRepository.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\services\DietaService.java
-C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\controllers\GestionDietas.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\entities\Dieta.java
 C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\controllers\Mapper.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\repositories\DietaRepository.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\exceptions\TokenNoValidoException.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\controllers\GestionDietas.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\security\JwtRequestFilter.java
+C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\src\main\java\es\uma\informatica\practica3\security\JwtUtil.java
