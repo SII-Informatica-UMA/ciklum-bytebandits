@@ -665,7 +665,396 @@ class Practica3ApplicationTests {
 	@DisplayName("cuando la base de datos tiene datos")
 	public class BaseDatosConDatos {
 
+		@BeforeEach
+        public void setUp() {
+            // Crear y guardar dietas en la base de datos
+            Dieta dieta1 = Dieta.builder()
+                    .nombre("Dieta1")
+                    .descripcion("Descripción de la Dieta1")
+                    .observaciones("Observaciones Dieta1")
+                    .objetivo("Objetivo Dieta1")
+                    .duracionDias(30)
+                    .alimentos(Arrays.asList("alimento1", "alimento2"))
+                    .recomendaciones("Recomendaciones Dieta1")
+                    .idEntrenador(1L)
+                    .idClientes(new HashSet<>(Arrays.asList(1L, 2L)))
+                    .build();
 
+
+            dietaRepo.save(dieta1);
+        }
+
+
+        /*@Test
+        @DisplayName("Actualización exitosa de una dieta por el entrenador creador")
+        public void actualizarDietaExitosa() {
+            // Preparar una dieta existente para actualizar
+            DietaDTO dietaDTO = DietaDTO.builder()
+                    .id(1L)
+                    .nombre("Dieta Actualizada")
+                    .descripcion("Descripción actualizada")
+                    .build();
+       
+            // Realizar la solicitud de actualización
+            RequestEntity<DietaDTO> request = put("http", "localhost", port, "/dieta/1", dietaDTO);
+            ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+       
+            // Verificar que la solicitud fue exitosa (código 200)
+            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+            assertThat(dietaRepo.findById(1L).get().getNombre()).isEqualTo("Dieta Actualizada");
+        }*/
+
+
+        /*@Test
+        @DisplayName("obtiene una dieta concreta correctamente")
+        public void cogeDietaConcretaCorrectamente() throws JsonProcessingException {
+            var peticion = "http://localhost:" + portGestionUsuarios + "/usuario";
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + token);
+
+
+            List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+            UsuarioDTO user = new UsuarioDTO(1L, "testuser");
+            usuariosDTO.add(user);
+
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            String usuariosJson = objectMapper.writeValueAsString(usuariosDTO);
+       
+            mockServer.expect(requestTo(peticion))
+            .andExpect(method(HttpMethod.GET))
+            .andExpect(header("Authorization", "Bearer " + token))
+            .andRespond(withSuccess(usuariosJson, MediaType.APPLICATION_JSON));
+       
+            peticion = "http://localhost:" + portGestionEntrenadores + "/entrenador?centro=0";
+       
+            List<EntrenadorDTO> entrenadoresDTO = new ArrayList<>();
+            EntrenadorDTO entrenadorDTO = new EntrenadorDTO(1L, 1L, "777");
+            entrenadoresDTO.add(entrenadorDTO);
+       
+            String entrenadoresJson = objectMapper.writeValueAsString(entrenadoresDTO);
+       
+            mockServer.expect(requestTo(peticion))
+            .andExpect(method(HttpMethod.GET))
+            .andExpect(header("Authorization", "Bearer " + token))
+            .andRespond(withSuccess(entrenadoresJson, MediaType.APPLICATION_JSON));
+       
+            peticion = "http://localhost:" + port + "/dieta/1";
+            HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+       
+            // Realizar la solicitud GET y verificar el resultado
+            ResponseEntity<DietaDTO> respuesta = testRestTemplate.exchange(peticion, HttpMethod.GET, requestEntity,new ParameterizedTypeReference<DietaDTO>() {});
+
+
+            mockServer.verify();
+
+
+            assertThat(respuesta.getStatusCode().equals(HttpStatus.OK));
+            assertThat(respuesta.getBody().getNombre().equals("Vegetariana"));
+
+
+        }*/
+
+        /*@Test
+        @DisplayName("crea una dieta a un entrenador correctamente")
+        public void creaDietaConcretaCorrectamente() throws JsonProcessingException {
+            String token = "your-test-token";
+            String peticion;
+            
+            // Setup Mock Server
+            mockServer = MockRestServiceServer.createServer(restTemplate);
+            
+            // Mocking /usuario endpoint
+            peticion = "http://localhost:" + port + "/usuario";
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + token);
+
+            List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+            UsuarioDTO user = new UsuarioDTO(1L, "testuser");
+            usuariosDTO.add(user);
+
+            String usuariosJson = objectMapper.writeValueAsString(usuariosDTO);
+
+            mockServer.expect(requestTo(peticion))
+                    .andExpect(method(HttpMethod.GET))
+                    .andExpect(header("Authorization", "Bearer " + token))
+                    .andRespond(withSuccess(usuariosJson, MediaType.APPLICATION_JSON));
+
+            // Mocking /entrenador endpoint
+            peticion = "http://localhost:" + port + "/entrenador?centro=0";
+
+            List<EntrenadorDTO> entrenadoresDTO = new ArrayList<>();
+            EntrenadorDTO entrenadorDTO = new EntrenadorDTO(1L, 1L, "777");
+            entrenadoresDTO.add(entrenadorDTO);
+
+            String entrenadoresJson = objectMapper.writeValueAsString(entrenadoresDTO);
+
+            mockServer.expect(requestTo(peticion))
+                    .andExpect(method(HttpMethod.GET))
+                    .andExpect(header("Authorization", "Bearer " + token))
+                    .andRespond(withSuccess(entrenadoresJson, MediaType.APPLICATION_JSON));
+
+            // Creating a diet
+            DietaDTO newDieta = new DietaDTO();
+            newDieta.setNombre("Musculos");
+            newDieta.setDescripcion("Diet for muscle building");
+            newDieta.setIdEntrenador(1L);
+
+            peticion = "http://localhost:" + port + "/dieta";
+            HttpEntity<DietaDTO> requestEntity = new HttpEntity<>(newDieta, headers);
+
+            // Realizar la solicitud POST para crear la dieta
+            ResponseEntity<DietaDTO> respuesta = testRestTemplate.exchange(
+                    peticion, HttpMethod.POST, requestEntity, new ParameterizedTypeReference<DietaDTO>() {
+                    });
+
+            // Verificar que la respuesta sea exitosa
+            assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.OK);
+            assertThat(respuesta.getBody().getNombre()).isEqualTo("Vegetariana");
+
+            mockServer.verify();
+        }*/
+
+
+        @Test
+        @DisplayName("intenta actualizar una dieta inexistente y devuelve 404")
+        public void actualizarDietaInexistente() {
+            var dietaInexistente = DietaDTO.builder()
+                    .id(15L)  
+                    .descripcion("Descripción de una dieta que no existe")
+                    .build();
+
+
+            // Intentar actualizar la dieta inexistente
+            var peticion = put("http", "localhost", port, "/dieta/15", dietaInexistente);
+            var respuesta = testRestTemplate.exchange(peticion, new ParameterizedTypeReference<DietaDTO>() {});
+
+
+            // Verificar que se devuelve un estado 404 Not Found
+            assertThat(respuesta.getStatusCode().value()).isEqualTo(404);
+        }
+
+
+
+
+        @Test
+        @DisplayName("intenta eliminar una dieta inexistente y devuelve 404")
+        public void errorEliminarDietaInexistente() {
+            // Definimos la solicitud DELETE para eliminar una dieta inexistente con ID 15
+            var peticion = delete("http", "localhost", port, "/dieta/15");
+
+
+            // Enviamos la solicitud DELETE y esperamos la respuesta
+            var respuesta = testRestTemplate.exchange(peticion, Void.class);
+
+
+            // Verificamos que la respuesta no sea nula
+            assertThat(respuesta).isNotNull();
+
+
+            // Verificamos que el código de estado de la respuesta sea 404 (Not Found)
+            assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        }
+
+
+
+
+       
+        @Test
+        @DisplayName("elimina una dieta ")
+        public void eliminarDietaExitosa() {
+            try {
+                // Preparar la solicitud DELETE para eliminar una dieta existente
+                RequestEntity<Void> request = delete("http", "localhost", port, "/dieta/1");
+   
+                // Realizar la solicitud
+                ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+   
+                // Verificar que se devuelve un código 200 OK
+                assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+                assertThat(dietaRepo.count()).isEqualTo(0);
+   
+                // Verificar que la dieta se ha eliminado correctamente de la base de datos (opcional)
+                // Aquí puedes agregar código para verificar que la dieta ya no existe en la base de datos
+            } catch (Exception e) {
+                // Manejar cualquier excepción inesperada
+                fail("Se produjo una excepción: " + e.getMessage());
+            }
+        }
+
+
+        @Test
+        public void eliminarDietaBadRequest() {
+            try {
+                // Preparar la solicitud DELETE con un ID de dieta no válido
+                Long idDietaInvalido = null; // ID de dieta no válido
+                RequestEntity<Void> request = delete("http", "localhost", port, "/dieta/" + idDietaInvalido);
+   
+                // Realizar la solicitud
+                ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+   
+                // Verificar que se devuelve un código 400 Bad Request
+                assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+            } catch (Exception e) {
+                // Manejar cualquier excepción inesperada
+                fail("Se produjo una excepción: " + e.getMessage());
+            }
+        }
+
+
+
+
+        @Test
+        public void eliminarDietaAccesoNoAutorizado() {
+            try {
+                // Preparar la solicitud DELETE para eliminar una dieta sin permisos adecuados (por ejemplo, no es el entrenador que la creó)
+                Long idDieta = 1L; // ID de la dieta a eliminar
+                RequestEntity<Void> request = delete("http", "localhost", port, "/dieta/" + idDieta);
+   
+                // Realizar la solicitud
+                ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+   
+                // Si la solicitud tiene éxito, debería lanzar una excepción HttpClientErrorException.Forbidden
+                fail("Se esperaba una excepción HttpClientErrorException.Forbidden");
+            } catch (HttpClientErrorException.Forbidden e) {
+                // Verificar que se devuelve un código 403 Forbidden
+                assertThat(e.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+            } catch (Exception e) {
+                // Manejar cualquier excepción inesperada
+                fail("Se produjo una excepción: " + e.getMessage());
+            }
+        }
+
+
+        @Test
+        @DisplayName("error al intentar actualizar una dieta con datos inválidos")
+        public void actualizarDietaBadRequest() {
+            DietaDTO dietaDTO = DietaDTO.builder()
+                    .id(1L)
+                    .descripcion("Descripción actualizada")
+                    .build();
+
+
+            // Realizar la solicitud de actualización
+            RequestEntity<DietaDTO> request = put("http", "localhost", port, "/dieta/" + "pepe" , dietaDTO);
+            ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+
+
+            // Verificar que se devuelve un código 400 Bad Request
+            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        }
+
+
+        @Test
+        @DisplayName("error de acceso no autorizado al intentar actualizar una dieta")
+        public void actualizarDietaAccesoNoAutorizado() {
+            // Preparar una solicitud de actualización de dieta sin permisos
+            DietaDTO dietaDTO = DietaDTO.builder()
+                    .id(1L)
+                    .nombre("Dieta Actualizada")
+                    .descripcion("Descripción actualizada")
+                    .build();
+
+
+            try {
+                RequestEntity<DietaDTO> request = put("http", "localhost", port, "/dieta/1", dietaDTO);
+   
+                // Realizar la solicitud
+                ResponseEntity<Void> response = testRestTemplate.exchange(request, Void.class);
+   
+                // Si la solicitud tiene éxito, debería lanzar una excepción HttpClientErrorException.Forbidden
+                fail("Se esperaba una excepción HttpClientErrorException.Forbidden");
+            } catch (HttpClientErrorException.Forbidden e) {
+                // Verificar que se devuelve un código 403 Forbidden
+                assertThat(e.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+            } catch (Exception e) {
+                // Manejar cualquier excepción inesperada
+                fail("Se produjo una excepción: " + e.getMessage());
+            }
+        }
+
+
+        @Test
+        @DisplayName("error al intentar obtener una dieta con datos inválidos")
+        public void obtenerDietaBadRequest() {
+            // Preparar la solicitud GET para obtener una dieta con ID inválido
+            RequestEntity<Void> request = get("http", "localhost", port, "/dieta/abc");
+
+
+            // Realizar la solicitud
+            ResponseEntity<DietaDTO> response = testRestTemplate.exchange(request, new ParameterizedTypeReference<DietaDTO>() {});
+
+
+            // Verificar que se devuelve un código 400 Bad Request
+            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        }
+
+
+        @Test
+        @DisplayName("error de acceso no autorizado al intentar obtener una dieta")
+        public void obtenerDietaAccesoNoAutorizado() {
+            try {
+                RequestEntity<Void> request = get("http", "localhost", port, "/dieta/1");
+   
+                // Realizar la solicitud
+                ResponseEntity<DietaDTO> response = testRestTemplate.exchange(request, new ParameterizedTypeReference<DietaDTO>() {});
+   
+                // Si la solicitud tiene éxito, debería lanzar una excepción HttpClientErrorException.Forbidden
+                fail("Se esperaba una excepción HttpClientErrorException.Forbidden");
+            } catch (HttpClientErrorException.Forbidden e) {
+                // Verificar que se devuelve un código 403 Forbidden
+                assertThat(e.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+            } catch (Exception e) {
+                // Manejar cualquier excepción inesperada
+                fail("Se produjo una excepción: " + e.getMessage());
+            }
+        }
+
+	
+	/*@Test
+		@DisplayName("obtiene una dieta concreta")
+		public void cogeDietaConcretaCorrectamente() throws JsonProcessingException {
+			var peticion = "http://localhost:" + port + "/usuario";
+        	HttpHeaders headers = new HttpHeaders();
+        	headers.set("Authorization", "Bearer " + token);
+
+        	List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+        	UsuarioDTO user = new UsuarioDTO(1L, "testuser");
+        	usuariosDTO.add(user);
+
+        	ObjectMapper objectMapper = new ObjectMapper();
+        	String usuariosJson = objectMapper.writeValueAsString(usuariosDTO);
+		
+        	mockServer.expect(requestTo(peticion))
+			.andExpect(method(HttpMethod.GET))
+			.andExpect(header("Authorization", "Bearer " + token))
+			.andRespond(withSuccess(usuariosJson, MediaType.APPLICATION_JSON));
+		
+        	peticion = "http://localhost:" + port + "/entrenador?centro=0";
+		
+        	List<EntrenadorDTO> entrenadoresDTO = new ArrayList<>();
+        	EntrenadorDTO entrenadorDTO = new EntrenadorDTO(1L);
+        	entrenadoresDTO.add(entrenadorDTO);
+		
+        	String entrenadoresJson = objectMapper.writeValueAsString(entrenadoresDTO);
+		
+			mockServer.expect(requestTo(peticion))
+			.andExpect(method(HttpMethod.GET))
+			.andExpect(header("Authorization", "Bearer " + token))
+			.andRespond(withSuccess(entrenadoresJson, MediaType.APPLICATION_JSON));
+		
+	    	peticion = "http://localhost:" + port + "/dieta/";
+			HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+		
+			// Realizar la solicitud GET y verificar el resultado
+			ResponseEntity<DietaDTO> respuesta = restTemplateTest.exchange(peticion, HttpMethod.GET, requestEntity,new ParameterizedTypeReference<DietaDTO>() {});
+
+			mockServer.verify();
+
+			assertThat(respuesta.getStatusCode().equals(HttpStatus.OK));
+        	assertThat(respuesta.getBody().size()).isEqualTo(1);
+
+		}*/
 
 		/*
 
