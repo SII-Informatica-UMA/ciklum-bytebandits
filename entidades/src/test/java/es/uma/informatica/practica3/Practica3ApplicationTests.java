@@ -1089,6 +1089,53 @@ class Practica3ApplicationTests {
                 assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.OK);
             }
         }
+	@Test
+	@DisplayName("actualiza una dieta correctamente")
+	public void actualizaDietaCorrectamente() throws JsonProcessingException {
+	    var peticionUsuario = "http://localhost:" + port + "/usuario";
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.set("Authorization", "Bearer " + token);
+	
+	    List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+	    UsuarioDTO user = new UsuarioDTO(1L, "testuser");
+	    usuariosDTO.add(user);
+	
+	    ObjectMapper objectMapper = new ObjectMapper();
+	    String usuariosJson = objectMapper.writeValueAsString(usuariosDTO);
+	
+	    mockServer.expect(requestTo(peticionUsuario))
+	        .andExpect(method(HttpMethod.GET))
+	        .andExpect(header("Authorization", "Bearer " + token))
+	        .andRespond(withSuccess(usuariosJson, MediaType.APPLICATION_JSON));
+	
+	    var peticionEntrenador = "http://localhost:" + portGestionEntrenadores + "/entrenador?centro=0";
+	
+	    List<EntrenadorDTO> entrenadoresDTO = new ArrayList<>();
+	    EntrenadorDTO entrenadorDTO = new EntrenadorDTO(1L, 1L, "777");
+	    entrenadoresDTO.add(entrenadorDTO);
+	
+	    String entrenadoresJson = objectMapper.writeValueAsString(entrenadoresDTO);
+	
+	    mockServer.expect(requestTo(peticionEntrenador))
+	        .andExpect(method(HttpMethod.GET))
+	        .andExpect(header("Authorization", "Bearer " + token))
+	        .andRespond(withSuccess(entrenadoresJson, MediaType.APPLICATION_JSON));
+	
+	    var peticionDieta = "http://localhost:" + port + "/dieta/1";
+	    DietaDTO dietaActualizada = new DietaDTO(1L, "Dieta Actualizada", "Dieta actualizada");
+	    String dietaJson = objectMapper.writeValueAsString(dietaActualizada);
+	    HttpEntity<String> requestEntity = new HttpEntity<>(dietaJson, headers);
+	
+	    // Realizar la solicitud PUT y verificar el resultado
+	    ResponseEntity<DietaDTO> respuesta = testRestTemplate.exchange(peticionDieta, HttpMethod.PUT, requestEntity, new ParameterizedTypeReference<DietaDTO>() {});
+	
+	    mockServer.verify();
+	
+	    assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.OK);
+	    assertThat(respuesta.getBody().getNombre()).isEqualTo("Dieta Actualizada");
+	}
+
+
 		 */
 
 	}
