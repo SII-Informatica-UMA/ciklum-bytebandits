@@ -6,9 +6,9 @@ import es.uma.informatica.practica3.entities.Dieta;
 
 <span class="fc" id="L7">public class Mapper {</span>
     public static DietaDTO toDietaDTO(Dieta dieta) {
-<span class="nc" id="L9">        return DietaDTO.builder()</span>
-<span class="nc" id="L10">            .id(dieta.getId())</span>
-<span class="nc" id="L11">            .build();</span>
+<span class="fc" id="L9">        return DietaDTO.builder()</span>
+<span class="fc" id="L10">            .id(dieta.getId())</span>
+<span class="fc" id="L11">            .build();</span>
     }
 
     public static Dieta toDieta(DietaNuevaDTO dietaNuevaDTO) {
@@ -24,9 +24,9 @@ import es.uma.informatica.practica3.entities.Dieta;
     }
 
     public static Dieta toDieta2(DietaDTO dietaDTO) {
-<span class="nc" id="L27">        return es.uma.informatica.practica3.entities.Dieta.builder()</span>
-<span class="nc" id="L28">            .id(dietaDTO.getId())</span>
-<span class="nc" id="L29">            .build();</span>
+<span class="fc" id="L27">        return es.uma.informatica.practica3.entities.Dieta.builder()</span>
+<span class="fc" id="L28">            .id(dietaDTO.getId())</span>
+<span class="fc" id="L29">            .build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

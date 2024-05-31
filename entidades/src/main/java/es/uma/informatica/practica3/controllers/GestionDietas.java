@@ -3,7 +3,9 @@ package es.uma.informatica.practica3.controllers;
 import es.uma.informatica.practica3.dtos.DietaDTO;
 import es.uma.informatica.practica3.dtos.DietaNuevaDTO;
 import es.uma.informatica.practica3.entities.Dieta;
+import es.uma.informatica.practica3.exceptions.ClienteNoExisteException;
 import es.uma.informatica.practica3.exceptions.DietaNoExisteException;
+import es.uma.informatica.practica3.exceptions.EntrenadorNoExisteException;
 import es.uma.informatica.practica3.services.DietaService;
 import java.net.URI;
 import java.util.List;
@@ -107,5 +109,19 @@ public class GestionDietas {
       code = HttpStatus.NOT_FOUND
    )
    public void handleDietaNoExisteException() {
+   }
+
+   @ExceptionHandler({ClienteNoExisteException.class})
+   @ResponseStatus(
+      code = HttpStatus.NOT_FOUND
+   )
+   public void handleClienteNoExisteException() {
+   }
+
+   @ExceptionHandler({EntrenadorNoExisteException.class})
+   @ResponseStatus(
+      code = HttpStatus.NOT_FOUND
+   )
+   public void handleEntrenadorNoExisteException() {
    }
 }

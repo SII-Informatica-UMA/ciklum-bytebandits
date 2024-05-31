@@ -9,17 +9,17 @@ import java.util.Set;
 import lombok.*;
 
 @Getter
-<span class="nc" id="L12">@Setter</span>
-<span class="nc" id="L13">@AllArgsConstructor</span>
+<span class="pc" id="L12">@Setter</span>
+<span class="fc" id="L13">@AllArgsConstructor</span>
 <span class="fc" id="L14">@NoArgsConstructor</span>
-<span class="nc" id="L15">@Builder</span>
+<span class="pc" id="L15">@Builder</span>
 <span class="nc bnc" id="L16" title="All 86 branches missed.">@EqualsAndHashCode</span>
 <span class="nc" id="L17">@ToString</span>
 @Entity
 public class Dieta {
    @Id
    @GeneratedValue
-<span class="nc" id="L22">   private Long id;</span>
+<span class="fc" id="L22">   private Long id;</span>
 <span class="nc" id="L23">   private String nombre;</span>
 <span class="nc" id="L24">   private String descripcion;</span>
 <span class="nc" id="L25">   private String observaciones;</span>
@@ -30,7 +30,7 @@ public class Dieta {
 <span class="nc" id="L30">   private String recomendaciones;</span>
 <span class="nc" id="L31">   private Long idEntrenador;</span>
    @ElementCollection
-<span class="nc" id="L33">   private Set&lt;Long&gt; idClientes;</span>
+<span class="fc" id="L33">   private Set&lt;Long&gt; idClientes;</span>
 
    
 }

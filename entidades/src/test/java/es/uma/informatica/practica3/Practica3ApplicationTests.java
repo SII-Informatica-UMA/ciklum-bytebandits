@@ -63,6 +63,7 @@ import java.util.*;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(MockitoExtension.class)
 class Practica3ApplicationTests {
+<<<<<<< Updated upstream
 	@Autowired
 	private TestRestTemplate testRestTemplate;
 
@@ -76,10 +77,17 @@ class Practica3ApplicationTests {
 	private int portGestionEntrenadores;
 	private int portGestionUsuarios;
 
+=======
+    @Autowired
+    private TestRestTemplate testRestTemplate;
 
-	@Autowired
-	private DietaRepository dietaRepo;
 
+    @Mock
+    private RestTemplate restTemplate;
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
 
 	@Autowired
 	private JwtUtil jwtUtil;
@@ -207,11 +215,33 @@ class Practica3ApplicationTests {
 		return builder.build().toUri();
 	}
 
+=======
+    @Value(value = "${local.server.port}")
+    private int port;
+    private int portGestionEntrenadores;
+    private int portGestionUsuarios;
 
-	@Nested
-	@DisplayName("cuando la base de datos esta vacia")
-	public class BaseDatosVacia {
 
+    @Autowired
+    private DietaRepository dietaRepo;
+
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+
+    private String token;
+
+
+    @InjectMocks
+    private DietaService dietaService;
+
+>>>>>>> Stashed changes
+
+    @InjectMocks
+    private GestionDietas controlador;
+
+<<<<<<< Updated upstream
 
 		@Test
 		@DisplayName("lanza error cuando se llama a delete y la dieta no existe")
@@ -1002,4 +1032,133 @@ class Practica3ApplicationTests {
 
 
 	}
+=======
+
+    private Mapper mapper = new Mapper();
+
+
+    @Mock
+    private UserDetails userDetails;
+
+
+    private MockRestServiceServer mockServer;
+
+
+    @BeforeEach
+    public void inicializar() {
+        Mockito.when(userDetails.getUsername()).thenReturn("testUser");
+        token = jwtUtil.generateToken(userDetails);
+        dietaService.metodoInicializar(token, restTemplate);
+        mockServer = MockRestServiceServer.createServer(restTemplate);
+    }
+
+
+   
+
+
+    private URI uri(String scheme, String host, int port, String... paths) {
+        UriBuilderFactory ubf = new DefaultUriBuilderFactory();
+        UriBuilder ub = ubf.builder()
+                .scheme(scheme)
+                .host(host).port(port);
+        for (String path : paths) {
+            ub = ub.path(path);
+        }
+        return ub.build();
+    }
+
+
+    public URI uriQuery(String scheme, String host, int port, String query, String... paths) {
+        UriBuilderFactory ubf = new DefaultUriBuilderFactory();
+        UriBuilder ub = ubf.builder()
+                .scheme(scheme)
+                .host(host).port(port);
+        for (String path : paths) {
+            ub = ub.path(path);
+        }
+        ub = ub.query("plan=1");
+        return ub.build();
+    }
+
+
+    private RequestEntity<Void> get(String scheme, String host, int port, String path) {
+        URI uri = uri(scheme, host, port, path);
+        var peticion = RequestEntity.get(uri)
+                .header("Authorization", "Bearer " + token)
+                .accept(MediaType.APPLICATION_JSON)
+                .build();
+        return peticion;
+    }
+
+
+    private RequestEntity<Void> delete(String scheme, String host, int port, String path) {
+        URI uri = uri(scheme, host, port, path);
+        var peticion = RequestEntity.delete(uri)
+                .header("Authorization", "Bearer " + token)
+                .build();
+        return peticion;
+    }
+
+
+    private <T> RequestEntity<T> post(String scheme, String host, int port, String path, T object) {
+        URI uri = uri(scheme, host, port, path);
+        var peticion = RequestEntity.post(uri)
+                .header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(object);
+        return peticion;
+    }
+
+
+    private <T> RequestEntity<T> put(String scheme, String host, int port, String path, T object) {
+        URI uri = uri(scheme, host, port, path);
+        var peticion = RequestEntity.put(uri)
+                .header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(object);
+        return peticion;
+    }
+
+
+    private <T> RequestEntity<T> putWithQuery(String scheme, String host, int port, String path, Map<String, String> queryParams, T object) throws URISyntaxException {
+        URI uri = uriWithQuery(scheme, host, port, path, queryParams);
+        return RequestEntity.put(uri)
+                .header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(object);
+    }
+
+
+    private URI uriWithQuery(String scheme, String host, int port, String path, Map<String, String> queryParams) throws URISyntaxException {
+        UriComponentsBuilder builder = UriComponentsBuilder.newInstance()
+                .scheme(scheme)
+                .host(host)
+                .port(port)
+                .path(path);
+
+
+        for (Map.Entry<String, String> entry : queryParams.entrySet()) {
+            builder.queryParam(entry.getKey(), entry.getValue());
+        }
+
+
+        return builder.build().toUri();
+    }
+
+
+    @Nested
+    @DisplayName("cuando la base de datos esta vacia")
+    public class BaseDatosVacia {
+        
+
+    }
+
+
+    @Nested
+    @DisplayName("cuando la base de datos tiene datos")
+    public class BaseDatosConDatos {
+       
+
+    }
+>>>>>>> Stashed changes
 }

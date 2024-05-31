@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.68 s -- in es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.eliminarDietaAccesoNoAutorizado -- Time elapsed: 0.788 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.eliminarDietaBadRequest -- Time elapsed: 0.134 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.actualizarDietaInexistente -- Time elapsed: 0.125 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.obtenerDietaBadRequest -- Time elapsed: 0.046 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.obtenerDietaAccesoNoAutorizado -- Time elapsed: 0.056 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.actualizarDietaAccesoNoAutorizado -- Time elapsed: 0.101 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.actualizarDietaBadRequest -- Time elapsed: 0.038 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.eliminarDietaExitosa -- Time elapsed: 0.142 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos.errorEliminarDietaInexistente -- Time elapsed: 0.041 s

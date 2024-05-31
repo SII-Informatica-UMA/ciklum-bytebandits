@@ -10,4 +10,8 @@ import lombok.*;
 @ToString
 public class DietaDTO {
    private Long id;
+   private String nombre;
+   private String descripcion;
+   private Long idEntrenador;
+
 }

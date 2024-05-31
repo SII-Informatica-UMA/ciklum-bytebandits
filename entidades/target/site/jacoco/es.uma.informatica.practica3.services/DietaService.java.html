@@ -1,50 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DietaService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NivelesInstituto</a> &gt; <a href="index.source.html" class="el_package">es.uma.informatica.practica3.services</a> &gt; <span class="el_source">DietaService.java</span></div><h1>DietaService.java</h1><pre class="source lang-java linenums">package es.uma.informatica.practica3.services;
 
 import es.uma.informatica.practica3.entities.Dieta;
+import es.uma.informatica.practica3.exceptions.ClienteNoExisteException;
 import es.uma.informatica.practica3.exceptions.DietaNoExisteException;
 import es.uma.informatica.practica3.repositories.DietaRepository;
+import es.uma.informatica.practica3.security.SecurityConfguration;
+import es.uma.informatica.practica3.dtos.ClienteDTO;
+import es.uma.informatica.practica3.dtos.EntrenadorDTO;
+import es.uma.informatica.practica3.dtos.UsuarioDTO;
+import es.uma.informatica.practica3.exceptions.EntrenadorNoExisteException;
+
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
+
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
+
 
 @Service
 @Transactional
 public class DietaService {
    private DietaRepository dietaRepository;
 
-<span class="fc" id="L16">   public DietaService(DietaRepository dietaRepository) {</span>
-<span class="fc" id="L17">      this.dietaRepository = dietaRepository;</span>
-<span class="fc" id="L18">   }</span>
+   private RestTemplate restTemplate;
+   private String token;
+
+   
+	private int portGestionEntrenadores;
+
+	private int portGestionUsuarios;
+
+   private int portGestionClientes;
+
+
+
+   @Autowired
+<span class="fc" id="L47">   public DietaService(DietaRepository dietaRepository) {</span>
+<span class="fc" id="L48">      this.dietaRepository = dietaRepository;</span>
+<span class="fc" id="L49">   }</span>
+
+<span class="fc" id="L51">   public DietaService(DietaRepository dietaRepository, RestTemplate rest) {</span>
+<span class="fc" id="L52">      this.dietaRepository = dietaRepository;</span>
+<span class="fc" id="L53">      this.restTemplate = rest;</span>
+<span class="fc" id="L54">  }</span>
+
 
    public List&lt;Dieta&gt; dietasDeEntrenador(Long idEntrenador) {
-<span class="nc" id="L21">      return this.dietaRepository.findAllByIdEntrenador(idEntrenador);</span>
+      /*if(esEntrenador(idEntrenador)){
+         return this.dietaRepository.findAllByIdEntrenador(idEntrenador);
+      } else {
+         throw new EntrenadorNoExisteException();
+      }*/
+<span class="nc" id="L63">      return this.dietaRepository.findAllByIdEntrenador(idEntrenador);</span>
+
    }
 
    public List&lt;Dieta&gt; dietasDeCliente(Long idCliente) {
-<span class="nc" id="L25">      return this.dietaRepository.findByIdClientesContaining(idCliente);</span>
+      /*if(esCliente(idCliente)){
+         return this.dietaRepository.findByIdClientesContaining(idCliente);
+      } else {
+         throw new ClienteNoExisteException();
+      }*/
+<span class="nc" id="L73">      return this.dietaRepository.findByIdClientesContaining(idCliente);</span>
+
    }
 
    public Dieta crearActualizarDieta(Dieta g) {
-<span class="nc" id="L29">      return (Dieta)this.dietaRepository.save(g);</span>
+<span class="fc" id="L78">      return (Dieta)this.dietaRepository.save(g);</span>
    }
 
    public Optional&lt;Dieta&gt; obtenerDieta(Long id) {
-<span class="fc" id="L33">      return this.dietaRepository.findById(id);</span>
+<span class="fc" id="L82">      return this.dietaRepository.findById(id);</span>
    }
 
    public void eliminarDieta(Long id) {
-<span class="nc" id="L37">      this.dietaRepository.deleteById(id);</span>
-<span class="nc" id="L38">   }</span>
+<span class="fc" id="L86">      this.dietaRepository.deleteById(id);</span>
+<span class="fc" id="L87">   }</span>
 
    public void asignarDieta(Long idDieta, Long idCliente) {
-<span class="nc" id="L41">      Optional&lt;Dieta&gt; d = this.obtenerDieta(idDieta);</span>
-<span class="nc" id="L42">      d.ifPresent((dieta) -&gt; {</span>
-<span class="nc" id="L43">         dieta.getIdClientes().add(idCliente);</span>
-<span class="nc" id="L44">         this.dietaRepository.save(dieta);</span>
-<span class="nc" id="L45">      });</span>
-<span class="nc" id="L46">      d.orElseThrow(DietaNoExisteException::new);</span>
-<span class="nc" id="L47">   }</span>
+<span class="fc" id="L90">      Optional&lt;Dieta&gt; d = this.obtenerDieta(idDieta);</span>
+<span class="fc" id="L91">      d.ifPresent((dieta) -&gt; {</span>
+<span class="nc" id="L92">         dieta.getIdClientes().add(idCliente);</span>
+<span class="nc" id="L93">         this.dietaRepository.save(dieta);</span>
+<span class="nc" id="L94">      });</span>
+<span class="nc" id="L95">      d.orElseThrow(DietaNoExisteException::new);</span>
+<span class="nc" id="L96">   }</span>
+
+   public void metodoInicializar(String token, RestTemplate restTemplate){
+<span class="fc" id="L99">      this.token = token;</span>
+<span class="fc" id="L100">      this.restTemplate = restTemplate;</span>
+<span class="fc" id="L101">   }</span>
+
+   public boolean esEntrenador(Long id) {
+<span class="nc" id="L104">      var authenticatedUser = SecurityConfguration.getAuthenticatedUser();</span>
+      
+<span class="nc bnc" id="L106" title="All 2 branches missed.">      if (authenticatedUser.isPresent()) {</span>
+
+<span class="nc" id="L108">         String userName = authenticatedUser.get().getUsername();</span>
+
+<span class="nc" id="L110">			var peticion = &quot;http://localhost:&quot; + portGestionUsuarios + &quot;/usuario&quot;;</span>
+
+         // Crear la entidad HTTP con la dieta
+<span class="nc" id="L113">         HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc" id="L114">         headers.set(&quot;Authorization&quot;, &quot;Bearer&quot; + token);</span>
+<span class="nc" id="L115">         HttpEntity&lt;List&lt;UsuarioDTO&gt;&gt; requestEntityUser = new HttpEntity&lt;&gt;(headers);</span>
+
+         // Invocar al servicio REST usando exchange
+<span class="nc" id="L118">         ResponseEntity&lt;List&lt;UsuarioDTO&gt;&gt; responseUser = restTemplate.exchange(peticion, HttpMethod.GET, requestEntityUser, new ParameterizedTypeReference&lt;List&lt;UsuarioDTO&gt;&gt;() {});</span>
+         
+<span class="nc" id="L120">         List&lt;UsuarioDTO&gt; listaUsuarios = responseUser.getBody();</span>
+<span class="nc" id="L121">         Optional&lt;UsuarioDTO&gt; usuarioDTOOptional = listaUsuarios.stream().filter(usuario -&gt; usuario.getNombre().equals(userName)).findFirst();</span>
+      
+<span class="nc bnc" id="L123" title="All 2 branches missed.">         if (usuarioDTOOptional.isPresent()) {</span>
+            // Obtener el ID del usuario encontrado
+<span class="nc" id="L125">            Long userId = usuarioDTOOptional.get().getId();</span>
+
+            // Petición para obtener la lista de entrenadores
+<span class="nc" id="L128">            var peticion2 = &quot;http://localhost:&quot; + portGestionEntrenadores + &quot;/entrenador&quot;;</span>
+<span class="nc" id="L129">            HttpEntity&lt;List&lt;EntrenadorDTO&gt;&gt; requestEntityEntrenador = new HttpEntity&lt;&gt;(headers);</span>
+            
+            // Invocar al servicio REST para obtener la lista de entrenadores
+<span class="nc" id="L132">            ResponseEntity&lt;List&lt;EntrenadorDTO&gt;&gt; responseEntrenador = restTemplate.exchange(peticion2, HttpMethod.GET, requestEntityEntrenador, new ParameterizedTypeReference&lt;List&lt;EntrenadorDTO&gt;&gt;() {});</span>
+            
+<span class="nc" id="L134">            List&lt;EntrenadorDTO&gt; listaEntrenadores = responseEntrenador.getBody();</span>
+            
+            // Comprobar si el ID del usuario está en la lista de entrenadores
+<span class="nc" id="L137">            Optional&lt;EntrenadorDTO&gt; entrenadorDTOOptional = listaEntrenadores.stream().filter(entrenador -&gt; entrenador.getId().equals(userId)).findFirst();</span>
+            
+<span class="nc bnc" id="L139" title="All 2 branches missed.">            if(entrenadorDTOOptional.isPresent()){</span>
+<span class="nc" id="L140">               return entrenadorDTOOptional.get().getId().equals(id);</span>
+            } else {
+<span class="nc" id="L142">               throw new EntrenadorNoExisteException();</span>
+            }
+        } else {
+<span class="nc" id="L145">            throw new EntrenadorNoExisteException();</span>
+        }      
+      } else {
+<span class="nc" id="L148">         throw new EntrenadorNoExisteException();</span>
+      }
+   }
+
+   public boolean esCliente(Long id) {
+<span class="nc" id="L153">      var authenticatedUser = SecurityConfguration.getAuthenticatedUser();</span>
+      
+<span class="nc bnc" id="L155" title="All 2 branches missed.">      if (authenticatedUser.isPresent()) {</span>
+
+<span class="nc" id="L157">         String userName = authenticatedUser.get().getUsername();</span>
+
+<span class="nc" id="L159">			var peticion = &quot;http://localhost:&quot; + portGestionUsuarios + &quot;/usuario&quot;;</span>
+
+         // Crear la entidad HTTP con la dieta
+<span class="nc" id="L162">         HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc" id="L163">         headers.set(&quot;Authorization&quot;, &quot;Bearer&quot; + token);</span>
+<span class="nc" id="L164">         HttpEntity&lt;List&lt;UsuarioDTO&gt;&gt; requestEntityUser = new HttpEntity&lt;&gt;(headers);</span>
+
+         // Invocar al servicio REST usando exchange
+<span class="nc" id="L167">         ResponseEntity&lt;List&lt;UsuarioDTO&gt;&gt; responseUser = restTemplate.exchange(peticion, HttpMethod.GET, requestEntityUser, new ParameterizedTypeReference&lt;List&lt;UsuarioDTO&gt;&gt;() {});</span>
+         
+<span class="nc" id="L169">         List&lt;UsuarioDTO&gt; listaUsuarios = responseUser.getBody();</span>
+<span class="nc" id="L170">         Optional&lt;UsuarioDTO&gt; usuarioDTOOptional = listaUsuarios.stream().filter(usuario -&gt; usuario.getNombre().equals(userName)).findFirst();</span>
+      
+<span class="nc bnc" id="L172" title="All 2 branches missed.">         if (usuarioDTOOptional.isPresent()) {</span>
+            // Obtener el ID del usuario encontrado
+<span class="nc" id="L174">            Long userId = usuarioDTOOptional.get().getId();</span>
+
+            // Petición para obtener la lista de entrenadores
+<span class="nc" id="L177">            var peticion2 = &quot;http://localhost:&quot; + portGestionClientes + &quot;/entrenador&quot;;</span>
+<span class="nc" id="L178">            HttpEntity&lt;List&lt;ClienteDTO&gt;&gt; requestEntityCliente = new HttpEntity&lt;&gt;(headers);</span>
+            
+            // Invocar al servicio REST para obtener la lista de entrenadores
+<span class="nc" id="L181">            ResponseEntity&lt;List&lt;ClienteDTO&gt;&gt; responseCliente = restTemplate.exchange(peticion2, HttpMethod.GET, requestEntityCliente, new ParameterizedTypeReference&lt;List&lt;ClienteDTO&gt;&gt;() {});</span>
+            
+<span class="nc" id="L183">            List&lt;ClienteDTO&gt; listaCliente = responseCliente.getBody();</span>
+            
+            // Comprobar si el ID del usuario está en la lista de entrenadores
+<span class="nc" id="L186">            Optional&lt;ClienteDTO&gt; clienteDTOOptional = listaCliente.stream().filter(cliente -&gt; cliente.getId().equals(userId)).findFirst();</span>
+            
+<span class="nc bnc" id="L188" title="All 2 branches missed.">            if(clienteDTOOptional.isPresent()){</span>
+<span class="nc" id="L189">               return clienteDTOOptional.get().getId().equals(id);</span>
+            } else {
+<span class="nc" id="L191">               throw new ClienteNoExisteException();</span>
+            }
+        } else {
+<span class="nc" id="L194">            throw new ClienteNoExisteException();</span>
+        }      
+      } else {
+<span class="nc" id="L197">         throw new ClienteNoExisteException();</span>
+      }
+   }
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

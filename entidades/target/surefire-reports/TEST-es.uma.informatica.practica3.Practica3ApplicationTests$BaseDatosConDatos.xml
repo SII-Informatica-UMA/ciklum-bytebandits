@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="16.681" tests="9" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\target\test-classes;C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\target\classes;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;C:\Users\juand\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;C:\Users\juand\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\juand\.m2\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;C:\Users\juand\.m2\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;C:\Users\juand\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\juand\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\juand\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\juand\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\juand\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\juand\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\juand\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\juand\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\juand\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\juand\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\juand\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\juand\.m2\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;C:\Users\juand\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\juand\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\juand\.m2\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;C:\Users\juand\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\juand\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\juand\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\juand\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\juand\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\juand\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;C:\Users\juand\.m2\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;C:\Users\juand\.m2\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;C:\Users\juand\.m2\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.4\jackson-databind-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;C:\Users\juand\.m2\repository\jakarta\servlet\jakarta.servlet-api\5.0.0\jakarta.servlet-api-5.0.0.jar;C:\Users\juand\.m2\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;C:\Users\juand\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\juand\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\juand\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\juand\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\juand\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\juand\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\juand\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\juand\.m2\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;C:\Users\juand\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\juand\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\juand\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\juand\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\juand\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\juand\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;C:\Users\juand\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\juand\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\juand\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\juand\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\juand\.m2\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;C:\Users\juand\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\juand\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\juand\AppData\Local\Temp\surefire9233159254627625162\surefirebooter-20240531195827959_3.jar C:\Users\juand\AppData\Local\Temp\surefire9233159254627625162 2024-05-31T19-58-27_537-jvmRun1 surefire-20240531195827959_1tmp surefire_0-20240531195827959_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\target\test-classes;C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades\target\classes;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;C:\Users\juand\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;C:\Users\juand\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\juand\.m2\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;C:\Users\juand\.m2\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;C:\Users\juand\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\juand\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\juand\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\juand\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\juand\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\juand\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\juand\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\juand\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\juand\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\juand\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\juand\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\juand\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\juand\.m2\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;C:\Users\juand\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\juand\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\juand\.m2\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;C:\Users\juand\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\juand\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\juand\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\juand\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\juand\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\juand\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;C:\Users\juand\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;C:\Users\juand\.m2\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;C:\Users\juand\.m2\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;C:\Users\juand\.m2\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;C:\Users\juand\.m2\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\juand\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.4\jackson-databind-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;C:\Users\juand\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;C:\Users\juand\.m2\repository\jakarta\servlet\jakarta.servlet-api\5.0.0\jakarta.servlet-api-5.0.0.jar;C:\Users\juand\.m2\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;C:\Users\juand\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;C:\Users\juand\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\juand\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\juand\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\juand\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\juand\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\juand\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\juand\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\juand\.m2\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;C:\Users\juand\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\juand\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\juand\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\juand\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\juand\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\juand\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\juand\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;C:\Users\juand\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\juand\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\juand\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\juand\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\juand\.m2\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;C:\Users\juand\.m2\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;C:\Users\juand\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\juand\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\juand"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\juand\AppData\Local\Temp\surefire9233159254627625162\surefirebooter-20240531195827959_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.2+13-LTS"/>
+    <property name="user.name" value="juand"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.2+13"/>
+    <property name="localRepository" value="C:\Users\juand\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\juand\AppData\Local\Temp\"/>
+    <property name="catalina.home" value="C:\Users\juand\AppData\Local\Temp\tomcat.0.18089405223703939694"/>
+    <property name="com.zaxxer.hikari.pool_number" value="9"/>
+    <property name="java.version" value="21.0.2"/>
+    <property name="user.dir" value="C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="12092"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="C:\Users\juand\AppData\Local\Temp\tomcat.0.4256173605082999870"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python312\Scripts\;C:\Python312\;C:\Program Files\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\apache-maven-3.9.6-bin\apache-maven-3.9.6\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\juand\AppData\Local\Microsoft\WindowsApps;C:\Users\juand\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\juand\AppData\Roaming\npm;C:\Users\juand\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.2+13-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="eliminarDietaAccesoNoAutorizado" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.788">
+    <system-out><![CDATA[19:58:29.550 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [es.uma.informatica.practica3.Practica3ApplicationTests]: Practica3ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:58:29.770 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration es.uma.informatica.practica3.Practica3Application for test class es.uma.informatica.practica3.Practica3ApplicationTests
+19:58:30.126 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos]: BaseDatosConDatos does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:58:30.132 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration es.uma.informatica.practica3.Practica3Application for test class es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:32.865+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:32.868+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:34.282+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:34.387+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:35.420+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:35.446+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:35.446+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:35.558+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:35.560+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2611 ms
+2024-05-31T19:58:35.650+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-31T19:58:36.150+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:36.154+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-31T19:58:36.172+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:36.468+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:36.617+02:00  INFO 12092 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-31T19:58:36.677+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:36.890+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:36.955+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:38.292+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:38.360+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:38.798+02:00  INFO 12092 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31T19:58:39.408+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:39.436+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 380886b7-dcaf-4b96-b413-21806121ec19
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:39.932+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53347d48, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23c00c3b, org.springframework.security.web.context.SecurityContextHolderFilter@3ddfbcdb, org.springframework.security.web.header.HeaderWriterFilter@6d39cc87, org.springframework.web.filter.CorsFilter@44a25091, org.springframework.security.web.authentication.logout.LogoutFilter@5ad3dcd9, es.uma.informatica.practica3.security.JwtRequestFilter@5cb3fff1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2860fccf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b6de492, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@586d577a, org.springframework.security.web.session.SessionManagementFilter@19bf52b9, org.springframework.security.web.access.ExceptionTranslationFilter@e30fa6c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28a5ee04]
+2024-05-31T19:58:40.282+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52511 (http) with context path ''
+2024-05-31T19:58:40.291+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 8.071 seconds (process running for 12.163)
+2024-05-31T19:58:40.779+02:00  INFO 12092 --- [o-auto-1-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:40.780+02:00  INFO 12092 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:40.780+02:00  INFO 12092 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-05-31T19:58:40.842+02:00  INFO 12092 --- [o-auto-1-exec-2] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:41.068+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:41.077+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-31T19:58:41.080+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\juand\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="eliminarDietaBadRequest" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.134">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:41.140+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:41.140+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:41.378+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:41.394+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:41.514+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:41.515+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:41.515+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:41.547+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:41.547+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 403 ms
+2024-05-31T19:58:41.564+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-05-31T19:58:41.567+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:41.567+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-05-31T19:58:41.567+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:41.609+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:41.613+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:41.616+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:41.618+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:41.676+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:41.683+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:41.739+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:41.748+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e6b1518b-587a-410e-9eab-d69ad27e6d3f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:41.830+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3811bb92, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@326a6cbe, org.springframework.security.web.context.SecurityContextHolderFilter@4fe1d85d, org.springframework.security.web.header.HeaderWriterFilter@6ac2f229, org.springframework.web.filter.CorsFilter@4acc819c, org.springframework.security.web.authentication.logout.LogoutFilter@4372b0, es.uma.informatica.practica3.security.JwtRequestFilter@6cd612d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3658166e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b76f936, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21e6a3c4, org.springframework.security.web.session.SessionManagementFilter@5d3afcf5, org.springframework.security.web.access.ExceptionTranslationFilter@bfe47c8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b74754a]
+2024-05-31T19:58:41.911+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52514 (http) with context path ''
+2024-05-31T19:58:41.915+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.809 seconds (process running for 13.787)
+2024-05-31T19:58:41.945+02:00  INFO 12092 --- [o-auto-2-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:41.945+02:00  INFO 12092 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:41.946+02:00  INFO 12092 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:41.949+02:00  INFO 12092 --- [o-auto-2-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:42.045+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:42.050+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-05-31T19:58:42.052+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="actualizarDietaInexistente" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.125">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:42.088+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:42.089+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:42.268+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:42.280+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:42.372+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:42.373+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:42.374+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:42.402+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:42.402+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 310 ms
+2024-05-31T19:58:42.416+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-05-31T19:58:42.419+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:42.420+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-05-31T19:58:42.420+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:42.463+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:42.466+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:42.473+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:42.476+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:42.530+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:42.539+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:42.586+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:42.593+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2f9cf18f-a4e0-497b-94e9-f331c038d5f7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:42.671+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e54a659, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@306c7427, org.springframework.security.web.context.SecurityContextHolderFilter@9252756, org.springframework.security.web.header.HeaderWriterFilter@beec55f, org.springframework.web.filter.CorsFilter@b3457b4, org.springframework.security.web.authentication.logout.LogoutFilter@1a0f2919, es.uma.informatica.practica3.security.JwtRequestFilter@2b61433f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21c25d05, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5cfba05f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76aed37a, org.springframework.security.web.session.SessionManagementFilter@142e406e, org.springframework.security.web.access.ExceptionTranslationFilter@65a9acc3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@747132ca]
+2024-05-31T19:58:42.754+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52517 (http) with context path ''
+2024-05-31T19:58:42.758+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.695 seconds (process running for 14.63)
+2024-05-31T19:58:42.832+02:00  INFO 12092 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:42.832+02:00  INFO 12092 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:42.833+02:00  INFO 12092 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:42.839+02:00  INFO 12092 --- [o-auto-3-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:42.881+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:42.885+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-05-31T19:58:42.886+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="obtenerDietaBadRequest" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.046">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:42.926+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:42.926+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:43.115+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:43.131+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:43.225+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:43.225+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:43.226+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:43.244+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:43.244+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 316 ms
+2024-05-31T19:58:43.254+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-05-31T19:58:43.257+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:43.258+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-05-31T19:58:43.258+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:43.285+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:43.288+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:43.293+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:43.294+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:43.342+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:43.352+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:43.394+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:43.398+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ab63c900-3ead-4db0-9126-59ce83f94119
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:43.451+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a6a7f38, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a33d8de, org.springframework.security.web.context.SecurityContextHolderFilter@d2a3c90, org.springframework.security.web.header.HeaderWriterFilter@644270c, org.springframework.web.filter.CorsFilter@2ab57395, org.springframework.security.web.authentication.logout.LogoutFilter@1450ac5a, es.uma.informatica.practica3.security.JwtRequestFilter@1f53e9b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a13fd6d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2dc8d764, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1de4200, org.springframework.security.web.session.SessionManagementFilter@8fda249, org.springframework.security.web.access.ExceptionTranslationFilter@5dcb5eb6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2521dc27]
+2024-05-31T19:58:43.505+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52522 (http) with context path ''
+2024-05-31T19:58:43.511+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.616 seconds (process running for 15.383)
+2024-05-31T19:58:43.537+02:00  INFO 12092 --- [o-auto-4-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:43.537+02:00  INFO 12092 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:43.538+02:00  INFO 12092 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:43.540+02:00  INFO 12092 --- [o-auto-4-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:43.553+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:43.557+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-05-31T19:58:43.558+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="obtenerDietaAccesoNoAutorizado" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.056">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:43.591+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:43.591+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:43.777+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:43.788+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:43.870+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:43.871+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:43.871+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:43.893+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:43.893+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 300 ms
+2024-05-31T19:58:43.906+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-05-31T19:58:43.910+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:43.910+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-05-31T19:58:43.910+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:43.932+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:43.934+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:43.937+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:43.938+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:43.998+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:44.007+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:44.044+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:44.049+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: dae655d2-2db5-4f5c-b6a1-e0050e5f8033
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:44.107+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b25e8c6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f85b68d, org.springframework.security.web.context.SecurityContextHolderFilter@64127921, org.springframework.security.web.header.HeaderWriterFilter@174c0ace, org.springframework.web.filter.CorsFilter@2dc97eb8, org.springframework.security.web.authentication.logout.LogoutFilter@42f4bc9e, es.uma.informatica.practica3.security.JwtRequestFilter@121e3cb7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f24aeb5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8c9d1e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e281e5, org.springframework.security.web.session.SessionManagementFilter@438fd465, org.springframework.security.web.access.ExceptionTranslationFilter@481a66f0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4c266e5a]
+2024-05-31T19:58:44.179+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52525 (http) with context path ''
+2024-05-31T19:58:44.184+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.614 seconds (process running for 16.056)
+2024-05-31T19:58:44.208+02:00  INFO 12092 --- [o-auto-5-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:44.209+02:00  INFO 12092 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:44.209+02:00  INFO 12092 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-05-31T19:58:44.212+02:00  INFO 12092 --- [o-auto-5-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:44.236+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:44.240+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-05-31T19:58:44.241+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="actualizarDietaAccesoNoAutorizado" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.101">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:44.270+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:44.270+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:44.420+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:44.432+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:44.500+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:44.501+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:44.502+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:44.525+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:44.525+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 251 ms
+2024-05-31T19:58:44.537+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-05-31T19:58:44.544+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection conn50: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:44.544+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-05-31T19:58:44.544+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:44.568+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:44.570+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:44.575+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:44.576+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:44.624+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:44.634+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:44.681+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:44.685+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bfc8e771-08ed-4cdb-8627-912141ea8274
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:44.728+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f1f5dda, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68562cdc, org.springframework.security.web.context.SecurityContextHolderFilter@174928e4, org.springframework.security.web.header.HeaderWriterFilter@183e8ea5, org.springframework.web.filter.CorsFilter@743bdb5b, org.springframework.security.web.authentication.logout.LogoutFilter@3ccb088b, es.uma.informatica.practica3.security.JwtRequestFilter@237aea27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ee27cf2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22c5982d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@522cca0a, org.springframework.security.web.session.SessionManagementFilter@24dc8851, org.springframework.security.web.access.ExceptionTranslationFilter@7a146ccb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3142fe68]
+2024-05-31T19:58:44.769+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52528 (http) with context path ''
+2024-05-31T19:58:44.771+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.521 seconds (process running for 16.643)
+2024-05-31T19:58:44.802+02:00  INFO 12092 --- [o-auto-6-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:44.802+02:00  INFO 12092 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:44.803+02:00  INFO 12092 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:44.807+02:00  INFO 12092 --- [o-auto-6-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:44.868+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:44.871+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-05-31T19:58:44.873+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="actualizarDietaBadRequest" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.038">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:44.900+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:44.900+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:45.065+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:45.076+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:45.159+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:45.160+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:45.162+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:45.188+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:45.188+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 285 ms
+2024-05-31T19:58:45.202+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-05-31T19:58:45.206+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection conn60: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:45.207+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-05-31T19:58:45.207+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:45.250+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:45.254+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:45.260+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:45.262+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:45.325+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:45.337+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:45.387+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:45.393+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6b4c94bf-ca0c-49a2-b02c-3217dc43b70e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:45.438+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67ef5e9b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54f803a1, org.springframework.security.web.context.SecurityContextHolderFilter@1f7470f7, org.springframework.security.web.header.HeaderWriterFilter@6e415b5, org.springframework.web.filter.CorsFilter@6b311cdd, org.springframework.security.web.authentication.logout.LogoutFilter@21ae9aca, es.uma.informatica.practica3.security.JwtRequestFilter@5c92af18, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31b571bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@175a9381, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c958602, org.springframework.security.web.session.SessionManagementFilter@2e649aa1, org.springframework.security.web.access.ExceptionTranslationFilter@7c5255b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d475c8d]
+2024-05-31T19:58:45.486+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52531 (http) with context path ''
+2024-05-31T19:58:45.488+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.608 seconds (process running for 17.36)
+2024-05-31T19:58:45.509+02:00  INFO 12092 --- [o-auto-7-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:45.509+02:00  INFO 12092 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:45.510+02:00  INFO 12092 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:45.512+02:00  INFO 12092 --- [o-auto-7-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:45.525+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:45.528+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-05-31T19:58:45.529+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="eliminarDietaExitosa" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.142">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:45.555+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:45.556+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:45.752+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:45.760+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:45.820+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:45.821+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:45.821+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:45.841+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:45.842+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 285 ms
+2024-05-31T19:58:45.853+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-05-31T19:58:45.858+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection conn70: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:45.859+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-05-31T19:58:45.859+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:45.885+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:45.887+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:45.890+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:45.892+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:45.943+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:45.951+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:45.986+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:45.992+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 163a59db-0cda-49fc-8dcc-253f05300f63
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:46.033+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59d22cc0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@757e4453, org.springframework.security.web.context.SecurityContextHolderFilter@1b8c27f0, org.springframework.security.web.header.HeaderWriterFilter@3c5a8ceb, org.springframework.web.filter.CorsFilter@272b0608, org.springframework.security.web.authentication.logout.LogoutFilter@1e7ad1e6, es.uma.informatica.practica3.security.JwtRequestFilter@30480149, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fd8d23d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@578d2cf9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55e0504d, org.springframework.security.web.session.SessionManagementFilter@6f5b8acd, org.springframework.security.web.access.ExceptionTranslationFilter@a45d6ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ba3235b]
+2024-05-31T19:58:46.080+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52534 (http) with context path ''
+2024-05-31T19:58:46.084+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.549 seconds (process running for 17.956)
+2024-05-31T19:58:46.104+02:00  INFO 12092 --- [o-auto-8-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:46.104+02:00  INFO 12092 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:46.105+02:00  INFO 12092 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-31T19:58:46.108+02:00  INFO 12092 --- [o-auto-8-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:46.224+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:46.227+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2024-05-31T19:58:46.228+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+]]></system-out>
+  </testcase>
+  <testcase name="errorEliminarDietaInexistente" classname="es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosConDatos" time="0.041">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-31T19:58:46.259+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Starting Practica3ApplicationTests using Java 21.0.2 with PID 12092 (started by juand in C:\Users\juand\OneDrive\Documentos\GitHub\ciklum-bytebandits\entidades)
+2024-05-31T19:58:46.260+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2024-05-31T19:58:46.392+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T19:58:46.402+02:00  INFO 12092 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interface.
+2024-05-31T19:58:46.462+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-05-31T19:58:46.463+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T19:58:46.463+02:00  INFO 12092 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T19:58:46.480+02:00  INFO 12092 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T19:58:46.480+02:00  INFO 12092 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 218 ms
+2024-05-31T19:58:46.490+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2024-05-31T19:58:46.493+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection conn80: url=jdbc:h2:mem:test user=SA
+2024-05-31T19:58:46.493+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2024-05-31T19:58:46.493+02:00  INFO 12092 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2024-05-31T19:58:46.519+02:00  INFO 12092 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T19:58:46.524+02:00  INFO 12092 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T19:58:46.528+02:00  INFO 12092 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T19:58:46.530+02:00  WARN 12092 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-31T19:58:46.580+02:00  INFO 12092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31T19:58:46.587+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:46.625+02:00  WARN 12092 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-31T19:58:46.629+02:00  WARN 12092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ad2945d3-9678-4d24-823a-d16b57359127
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-31T19:58:46.688+02:00  INFO 12092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67c1eb51, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3491e071, org.springframework.security.web.context.SecurityContextHolderFilter@36e948f, org.springframework.security.web.header.HeaderWriterFilter@69d01fef, org.springframework.web.filter.CorsFilter@55871d2a, org.springframework.security.web.authentication.logout.LogoutFilter@278133f6, es.uma.informatica.practica3.security.JwtRequestFilter@1479be22, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d388a75, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@147edd5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e2c87d0, org.springframework.security.web.session.SessionManagementFilter@7276de11, org.springframework.security.web.access.ExceptionTranslationFilter@3359be21, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@626520ba]
+2024-05-31T19:58:46.746+02:00  INFO 12092 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52537 (http) with context path ''
+2024-05-31T19:58:46.748+02:00  INFO 12092 --- [           main] e.u.i.p.Practica3ApplicationTests        : Started Practica3ApplicationTests in 0.512 seconds (process running for 18.621)
+2024-05-31T19:58:46.768+02:00  INFO 12092 --- [o-auto-9-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-31T19:58:46.768+02:00  INFO 12092 --- [o-auto-9-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-31T19:58:46.768+02:00  INFO 12092 --- [o-auto-9-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-05-31T19:58:46.772+02:00  INFO 12092 --- [o-auto-9-exec-1] e.u.i.p.security.JwtRequestFilter        : usuario = testUser
+2024-05-31T19:58:46.786+02:00  INFO 12092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31T19:58:46.789+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2024-05-31T19:58:46.790+02:00  INFO 12092 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+]]></system-out>
+  </testcase>
+</testsuite>

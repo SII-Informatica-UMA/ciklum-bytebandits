@@ -1,7 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.79 s -- in es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia
-es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorGetSesion -- Time elapsed: 1.107 s
-es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorDeleteSesion -- Time elapsed: 0.084 s
-es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorPutSesion -- Time elapsed: 0.081 s
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.460 s -- in es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorForbiddenCrearDietaSinPermisos -- Time elapsed: 0.034 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorBadRequestActualizarDietaDatosIncorrectos -- Time elapsed: 0.022 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorDeleteDieta -- Time elapsed: 0.038 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorNotFoundObtenerDietaInexistente -- Time elapsed: 0.034 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.actualizarDietaInexistente -- Time elapsed: 0.032 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorNotFoundActualizarDietaInexistente -- Time elapsed: 0.021 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.modificarDietaInexistente -- Time elapsed: 0.018 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorNotFoundCrearDietaRutaNoExistente -- Time elapsed: 0.017 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorBadRequestCrearDietaSinPermisoEntrenador -- Time elapsed: 0.020 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorBadRequestObtenerDietaIdInvalido -- Time elapsed: 0.018 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorPutDieta -- Time elapsed: 0.049 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorGetDieta -- Time elapsed: 0.038 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorBadRequestAsociarDietaSinPermisoEntrenador -- Time elapsed: 0.030 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorForbiddenAsociarDietaSinPermisoEntrenador -- Time elapsed: 0.033 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorForbiddenObtenerDietaSinPermiso -- Time elapsed: 0.025 s
+es.uma.informatica.practica3.Practica3ApplicationTests$BaseDatosVacia.errorForbiddenActualizarDietaSinPermiso2 -- Time elapsed: 0.031 s
